@@ -864,7 +864,8 @@ internal sealed class N
 			base.WndProc(ref m);
 		}
 
-		protected override void Finalize()
+		//protected override void Finalize()
+		~Clipboard()
 		{
 			Uninstall();
 		}
@@ -1015,13 +1016,13 @@ internal sealed class N
 			}
 		}
 
-		protected override void BC()
+		protected /*override*/ void BC()
 		{
 			if (!(PI_32 == IntPtr.Zero))
 			{
 				XV((int)PI_32);
 			}
-			Finalize();
+			//Finalize();
 		}
 	}
 
@@ -1530,10 +1531,10 @@ internal sealed class N
 			int id = IW().Id;
 			int VP_ = 0;
 			int num = YM((IntPtr)TWB(), ref VP_);
-			if (VP_ != VP_)
-			{
-				return true;
-			}
+			//if (VP_ != VP_)
+			//{
+			//	return true;
+			//}
 			return false;
 		}
 
@@ -2019,7 +2020,7 @@ internal sealed class N
 	}
 
 	[STAThread]
-	public static void KZ()
+	public static void Main() // Changed from KZ
 	{
 		//Discarded unreachable code: IL_06ba, IL_06cd
 		//IL_06c4: Expected O, but got I4

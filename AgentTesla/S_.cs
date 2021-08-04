@@ -153,20 +153,19 @@ internal sealed class S_
 		//IL_0094: Expected O, but got I4
 		//IL_0095: Expected O, but got I4
 		int num = default(int);
-		string result;
+		string result = "";
 		int num3 = default(int);
 		try
 		{
 			ProjectData.ClearProjectError();
 			num = 1;
-			int num2 = 2;
 			StreamReader streamReader = new StreamReader(KH_319);
-			num2 = 3;
 			result = streamReader.ReadToEnd().ToString();
 		}
-		catch (object obj) when (obj is Exception && num != 0 && num3 == 0)
+		catch (Exception ex)
 		{
-			ProjectData.SetProjectError((Exception)obj);
+			if(num != 0 && num3 == 0)
+				ProjectData.SetProjectError(ex);
 			/*Error near IL_0073: Could not find block for branch target IL_0042*/;
 		}
 		if (num3 != 0)
@@ -202,15 +201,13 @@ internal sealed class S_
 		//IL_00ff: Expected O, but got I4
 		//IL_0100: Expected O, but got I4
 		int num2 = default(int);
-		string result;
+		string result = "";
 		int num3 = default(int);
 		try
 		{
-			int num = 1;
 			object objectValue = RuntimeHelpers.GetObjectValue(Interaction.CreateObject(O.I("7cUT2ztMdtc/tR7lMGy3/Q==")));
 			ProjectData.ClearProjectError();
 			num2 = 1;
-			num = 3;
 			string memberName = O.I("z5827sgITufWLaWsNfXraQ==");
 			object[] array = new object[1]
 			{
@@ -227,9 +224,10 @@ internal sealed class S_
 			}
 			result = Conversions.ToString(value);
 		}
-		catch (object obj) when (obj is Exception && num2 != 0 && num3 == 0)
+		catch (Exception ex)
 		{
-			ProjectData.SetProjectError((Exception)obj);
+			if (num2 != 0 && num3 == 0)
+				ProjectData.SetProjectError(ex);
 			/*Error near IL_00dd: Could not find block for branch target IL_00a8*/;
 		}
 		if (num3 != 0)

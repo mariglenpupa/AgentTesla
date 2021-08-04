@@ -1,3 +1,0 @@
-internal class _006ee562_002Dbfb5_002D4aa5_002Dacbb_002D0f949121ca0c : _006ee562_002Dbfb5_002D4aa5_002Dacbb_002D0f949121ca0c
-{
-}

@@ -1,15 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <AssemblyName>84UZVRF0SAJSQ45YVP8HC8ZX1OJ48UYNW2XHDETZ</AssemblyName>
+    <AssemblyName>agentTesla</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <OutputType>WinExe</OutputType>
     <UseWindowsForms>True</UseWindowsForms>
-    <TargetFramework>net20</TargetFramework>
-    <PlatformTarget>x86</PlatformTarget>
+    <TargetFramework>net40</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>4</LangVersion>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <OutputPath>bin\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic">
