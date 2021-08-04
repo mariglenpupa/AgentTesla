@@ -1,0 +1,11 @@
+Main Sample:
+https://www.virustotal.com/gui/file/0abb52b3e0c08d5e3713747746b019692a05c5ab8783fd99b1300f11ea59b1c9/detection
+> 0abb52b3e0c08d5e3713747746b019692a05c5ab8783fd99b1300f11ea59b1c9
+
+
+Using Unpac.me:
+https://www.unpac.me/results/b0c298d7-0e63-4dab-a0e2-75c2701e1146#/
+> agentTeslaUnPacked.bin
+
+We'll use IlSpy/dnSpy to get the source code.
+Then manually we'll do some cleanup & deobfuscation.
